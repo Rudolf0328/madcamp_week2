@@ -10,6 +10,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import com.example.madcamp_week2.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,5 +33,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
     }
+
+
 
 }
