@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Madcamp_week2">
         <activity
+            android:name=".ui.chatroom.AddChatRoomActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.chat.ChatActivity"
             android:exported="false" />
         <activity
