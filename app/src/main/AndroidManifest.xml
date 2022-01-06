@@ -11,7 +11,7 @@
         android:theme="@style/Theme.Madcamp_week2">
         <activity
             android:name=".MainActivity"
-            android:exported="false"
+            android:exported="true"
             android:label="@string/title_activity_main2" />
     </application>
 
