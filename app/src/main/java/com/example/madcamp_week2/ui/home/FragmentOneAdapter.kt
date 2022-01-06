@@ -1,6 +1,7 @@
 package com.example.madcamp_week2.ui.home
 
 import android.content.Context
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,8 +9,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import com.example.madcamp_week2.R
 import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 
 class CustomAdapter(private val context: Context, private val dataList: ArrayList<DataVo>) :
@@ -45,6 +48,7 @@ class CustomAdapter(private val context: Context, private val dataList: ArrayLis
         private val userName = itemView.findViewById<TextView>(R.id.userName)
         private val date = itemView.findViewById<TextView>(R.id.date)
 
+        @RequiresApi(Build.VERSION_CODES.O)
         fun bind(dataVo: DataVo, context: Context) {
             //사진 처리
             if (dataVo.photo != "") {
@@ -63,11 +67,12 @@ class CustomAdapter(private val context: Context, private val dataList: ArrayLis
             //TextView에 데이터 세팅
             userName.text = dataVo.name
             val today = LocalDate.now()
+            val Strnow = today.format(DateTimeFormatter.ofPattern("MM-dd-yyyy"))
             val year = today.getYear().toString()
             val month = today.getMonth().toString()
             val day = today.getDayOfMonth().toString()
 
-            date.text = month + "-" + day + "-" + year
+            date.text = Strnow
         }
     }
 
