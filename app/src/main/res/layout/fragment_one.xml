@@ -15,7 +15,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="14dp"
         android:layout_marginEnd="333dp"
         android:background="@drawable/frag1_facephoto"
         android:src="@drawable/ic_baseline_account_box_24"
@@ -52,8 +52,8 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="63dp"
-        android:layout_marginEnd="207dp"
+        android:layout_marginTop="67dp"
+        android:layout_marginEnd="200dp"
         android:layout_marginBottom="10dp"
         android:text="박정웅"
         android:textColor="@color/black"
@@ -84,8 +84,8 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="74dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="109dp"
         android:layout_marginBottom="10dp"
         android:text="15"
         android:textAlignment="center"
@@ -105,7 +105,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="63dp"
-        android:layout_marginEnd="74dp"
+        android:layout_marginEnd="108dp"
         android:text="게시물"
         android:textAlignment="center"
         android:textColor="@color/black"
@@ -116,6 +116,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.109" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/message"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="17dp"
+        android:background="@drawable/ic_baseline_more_vert_24" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/message2"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="56dp"
+        android:background="@drawable/ic_baseline_post_add_24" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"

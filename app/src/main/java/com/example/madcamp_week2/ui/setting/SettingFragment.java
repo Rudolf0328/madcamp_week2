@@ -25,7 +25,6 @@ public class SettingFragment extends Fragment {
         super.onCreate(savedInstanceState);
         ViewGroup view = (ViewGroup) inflater.inflate(R.layout.fragment_setting, container, false);
 
-
         return view;
     }
 }
