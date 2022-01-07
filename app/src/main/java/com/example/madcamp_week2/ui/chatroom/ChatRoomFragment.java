@@ -1,5 +1,6 @@
 package com.example.madcamp_week2.ui.chatroom;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,14 +13,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.madcamp_week2.R;
 import com.example.madcamp_week2.databinding.FragmentChatroomBinding;
 import com.example.madcamp_week2.ui.chatroom.data.Dummy;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class ChatRoomFragment extends Fragment {
 
-    private NotificationsViewModel notificationsViewModel;
-//    private FragmentChatroomBinding binding;
-
     ChatRoomRcvAdapter chatRoomRcvAdapter;
     RecyclerView rcvChatRoom;
+    FloatingActionButton btnAdd;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,20 +29,23 @@ public class ChatRoomFragment extends Fragment {
         rcvChatRoom = (RecyclerView) view.findViewById(R.id.chat_rcv_list);
         rcvChatRoom.setAdapter(chatRoomRcvAdapter);
 
+        btnAdd = (FloatingActionButton) view.findViewById(R.id.chat_btn_add);
+
         for (int i = 0; i < 3; i++) {
             Dummy.chatRoomList.get(i).toStringChatRoom();
         }
 
         chatRoomRcvAdapter.submitList(Dummy.chatRoomList);
 
-//        chatRcvAdapter.notifyDataSetChanged();
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), AddChatRoomActivity.class);
+                startActivity(intent);
+            }
+        });
 
         return view;
     }
 
-//    @Override
-//    public void onDestroyView() {
-//        super.onDestroyView();
-//        binding = null;
-//    }
 }
