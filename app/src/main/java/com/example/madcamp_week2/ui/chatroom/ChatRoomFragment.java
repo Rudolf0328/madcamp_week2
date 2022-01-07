@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -19,7 +20,7 @@ public class ChatRoomFragment extends Fragment {
 
     ChatRoomRcvAdapter chatRoomRcvAdapter;
     RecyclerView rcvChatRoom;
-    FloatingActionButton btnAdd;
+    Button btnAdd;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +30,7 @@ public class ChatRoomFragment extends Fragment {
         rcvChatRoom = (RecyclerView) view.findViewById(R.id.chat_rcv_list);
         rcvChatRoom.setAdapter(chatRoomRcvAdapter);
 
-        btnAdd = (FloatingActionButton) view.findViewById(R.id.chat_btn_add);
+        btnAdd = (Button) view.findViewById(R.id.chat_btn_add);
 
         for (int i = 0; i < 3; i++) {
             Dummy.chatRoomList.get(i).toStringChatRoom();
