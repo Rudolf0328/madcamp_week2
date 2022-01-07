@@ -83,24 +83,25 @@ class FragmentOne : Fragment() {
 
         val data:User = User(id, userName, userThumnail)
 
-        val retrofit = Retrofit.Builder().baseUrl("http://172.10.5.77").addConverterFactory(GsonConverterFactory.create()).build()
+        val retrofit = Retrofit.Builder().baseUrl("http://172.10.18.77:80").addConverterFactory(GsonConverterFactory.create()).build()
         var server = retrofit.create(RetrofitUser::class.java)
-//        server.postRequest(userName, userThumnail, id).enqueue((object:Callback<newuserresult>{
-//            override fun onFailure(call: Call<newuserresult>, t: Throwable) {
-//                Log.e("response", "error")
-//            }
-//            override fun onResponse(call: Call<newuserresult>, response: Response<newuserresult>) {
-//                Log.d("response : ", response?.body().toString())
-//            }
-//        }))
-        server.test().enqueue((object:Callback<testresult>{
-            override fun onFailure(call: Call<testresult>, t: Throwable) {
-                Log.e("response1", "error")
+        server.postRequest(userName, userThumnail, id).enqueue((object:Callback<newuserresult>{
+            override fun onFailure(call: Call<newuserresult>, t: Throwable) {
+                Log.e("response", "error")
             }
-            override fun onResponse(call: Call<testresult>, response: Response<testresult>) {
-                Log.d("response2: ", response?.body().toString())
+            override fun onResponse(call: Call<newuserresult>, response: Response<newuserresult>) {
+                Log.d("response : ", response?.body().toString())
             }
         }))
+//        server.test().enqueue((object:Callback<testresult>{
+//            override fun onFailure(call: Call<testresult>, t: Throwable) {
+//                Log.e("response1", "error")
+//                t.printStackTrace()
+//            }
+//            override fun onResponse(call: Call<testresult>, response: Response<testresult>) {
+//                Log.d("response2: ", response?.body().toString())
+//            }
+//        }))
 
         val mAdapter = CustomAdapter(v.context, userList)
         recycler_view.adapter = mAdapter
