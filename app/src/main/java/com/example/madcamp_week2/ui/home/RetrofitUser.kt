@@ -10,7 +10,7 @@ data class testresult(val nickName: String, val _id:String, val profile:String)
 
 interface RetrofitUser{
 
-    @GET("/user/ck071608000")
+    @GET("api/user/ck071608000")
     fun test(): Call<testresult>
 
 
