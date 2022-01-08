@@ -8,6 +8,6 @@ public class KakaoApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        KakaoSdk.init(this, "2506062233b27e2eac713a0404c091fd");
+        KakaoSdk.init(this, "f729563e0418d89c42e611a6b86153d4");
     }
 }

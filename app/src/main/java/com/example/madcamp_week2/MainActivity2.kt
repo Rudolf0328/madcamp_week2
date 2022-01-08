@@ -9,12 +9,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
+import com.example.madcamp_week2.ui.chatroom.FragmentThree
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity2 : AppCompatActivity() {
     private val fragmentOne by lazy { FragmentOne() }
     private val fragmentTwo by lazy { FragmentTwo() }
-    private val fragmentThree by lazy { ChatRoomFragment() }
+    private val fragmentThree by lazy { FragmentThree() }
 //    private val fragmentFour by lazy { FragmentFour() }
 
 

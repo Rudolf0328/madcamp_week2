@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.madcamp_week2.databinding.ActivityMainBinding;
-import com.example.madcamp_week2.ui.chatroom.AddChatRoomActivity;
+import com.example.madcamp_week2.ui.chatroom.AddChatRoomActivity_kt;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     long userid = 0;
     String userName = "temp";
     String userThumbnail = "temp";
+    String email = "temp";
 
     void updateKakaoLoginUi() {
         UserApiClient.getInstance().me(new Function2<User, Throwable, Unit>() {
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
                     userid = user.getId();
                     userName = user.getKakaoAccount().getProfile().getNickname();
                     userThumbnail = user.getKakaoAccount().getProfile().getThumbnailImageUrl();
+                    email = user.getKakaoAccount().getEmail();
 //                    Log.e("test", String.valueOf(userid));
 //                    Log.e("test", userName);
 //                    Log.e("test", userThumbnail);
@@ -54,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
 //                    Log.e("test1", String.valueOf(userid));
 //                    Log.e("test2", userName);
 //                    Log.e("test3", userThumbnail);
+                    Log.e("test kakao account", email);
 
                     intent.putExtra("userid", userid);
                     intent.putExtra("userName", userName);
