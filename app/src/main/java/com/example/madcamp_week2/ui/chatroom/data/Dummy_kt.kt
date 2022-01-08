@@ -11,9 +11,9 @@ class Dummy_kt {
     companion object {
         var chatRoomList: ArrayList<ChatRoomKT> = object : ArrayList<ChatRoomKT>() {
             init {
-                add(ChatRoomKT(R.drawable.img_rice, "rice", 4, 2))
-                add(ChatRoomKT(R.drawable.img_susi, "susi", 5, 1))
-                add(ChatRoomKT(R.drawable.img_salad, "salad", 10, 3))
+                add(ChatRoomKT(R.drawable.ic_chadayun, "밥 먹을 사람~~!!", 4, 2))
+                add(ChatRoomKT(R.drawable.ic_babo, "카레가 땡긴다...!", 5, 1))
+                add(ChatRoomKT(R.drawable.ic_chadayunbabo, "오늘은 덮밥이지!", 10, 3))
             }
         }
     }
