@@ -1,6 +1,7 @@
 package com.example.madcamp_week2.ui.home
 
 import android.app.AlertDialog
+import android.content.Intent
 import android.content.res.AssetManager
 import android.os.Build
 import android.os.Bundle
@@ -16,8 +17,10 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.madcamp_week2.MainActivity
 import com.example.madcamp_week2.R
 import com.google.android.material.button.MaterialButton
+import com.kakao.sdk.user.UserApiClient
 import org.json.JSONException
 import org.json.JSONObject
 import retrofit2.Call
@@ -70,6 +73,7 @@ class FragmentOne : Fragment() {
         val v = inflater.inflate(R.layout.fragment_one, container, false)
         val recycler_view = v.findViewById<RecyclerView>(R.id.recycler_view)
         val image = v.findViewById<ImageView>(R.id.loadingImage)
+        val logout = v.findViewById<Button>(R.id.logout)
 
         val id = requireActivity().intent.getStringExtra("id");
         val userName = requireActivity().intent.getStringExtra("userName");
@@ -85,14 +89,14 @@ class FragmentOne : Fragment() {
 
         val retrofit = Retrofit.Builder().baseUrl("http://172.10.18.77:80").addConverterFactory(GsonConverterFactory.create()).build()
         var server = retrofit.create(RetrofitUser::class.java)
-        server.postRequest(userName, userThumnail, id).enqueue((object:Callback<newuserresult>{
-            override fun onFailure(call: Call<newuserresult>, t: Throwable) {
-                Log.e("response", "error")
-            }
-            override fun onResponse(call: Call<newuserresult>, response: Response<newuserresult>) {
-                Log.d("response : ", response?.body().toString())
-            }
-        }))
+//        server.postRequest(userName, userThumnail, id).enqueue((object:Callback<newuserresult>{
+//            override fun onFailure(call: Call<newuserresult>, t: Throwable) {
+//                Log.e("response", "error")
+//            }
+//            override fun onResponse(call: Call<newuserresult>, response: Response<newuserresult>) {
+//                Log.d("response : ", response?.body().toString())
+//            }
+//        }))
 //        server.test().enqueue((object:Callback<testresult>{
 //            override fun onFailure(call: Call<testresult>, t: Throwable) {
 //                Log.e("response1", "error")
@@ -109,6 +113,19 @@ class FragmentOne : Fragment() {
         val layout = LinearLayoutManager(requireContext())
         recycler_view.layoutManager = layout
         recycler_view.setHasFixedSize(true)
+
+        logout.setOnClickListener {
+            UserApiClient.instance.logout { error->
+                if(error != null){
+                    Log.e("kakao accout", "logout fail")
+                }else{
+                    Log.e("kakao account", "logout success")
+                    val nextIntent = Intent(requireContext(), MainActivity::class.java)
+                    startActivity(nextIntent)
+                }
+
+            }
+        }
 
 
         return v
