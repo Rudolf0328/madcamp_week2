@@ -2,9 +2,7 @@ package com.example.madcamp_week2.ui.home
 
 import com.google.gson.annotations.SerializedName
 
-class DataVo(val name: String, val address: String, val phonenumber: String, val photo: String)
-
-data class newuserresult(val result: String)
+class Feed(val nickName:String, val time:String, val content:String, val image:String)
 
 data class User(
     @SerializedName("nickname")

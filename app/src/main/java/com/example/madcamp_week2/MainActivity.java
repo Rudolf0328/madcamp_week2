@@ -1,16 +1,25 @@
 package com.example.madcamp_week2;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.madcamp_week2.databinding.ActivityMainBinding;
 import com.example.madcamp_week2.ui.chatroom.AddChatRoomActivity_kt;
+import com.example.madcamp_week2.ui.home.RetrofitUser;
+import com.example.madcamp_week2.ui.home.registrationresult;
+import com.example.madcamp_week2.ui.home.testresult;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,42 +35,90 @@ import com.kakao.sdk.user.UserApiClient;
 import com.kakao.sdk.user.model.User;
 import com.kakao.sdk.common.KakaoSdk;
 
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
 import kotlin.Unit;
 import kotlin.jvm.functions.Function2;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     private ImageView profile_image;
-    long userid = 0;
-    String userName = "temp";
-    String userThumbnail = "temp";
-    String email = "temp";
+
+    String nickName = "temp";
+    String profile = "temp";
+    String id = "temp";
+
 
     void updateKakaoLoginUi() {
         UserApiClient.getInstance().me(new Function2<User, Throwable, Unit>() {
             @Override
             public Unit invoke(User user, Throwable throwable) {
                 if (user != null){
-                    userid = user.getId();
-                    userName = user.getKakaoAccount().getProfile().getNickname();
-                    userThumbnail = user.getKakaoAccount().getProfile().getThumbnailImageUrl();
-                    email = user.getKakaoAccount().getEmail();
-//                    Log.e("test", String.valueOf(userid));
-//                    Log.e("test", userName);
-//                    Log.e("test", userThumbnail);
-                    Glide.with(profile_image).load(user.getKakaoAccount().getProfile().getThumbnailImageUrl()).circleCrop().into(profile_image);
+                    id = user.getKakaoAccount().getEmail();
+                    nickName = user.getKakaoAccount().getProfile().getNickname();
+                    profile = user.getKakaoAccount().getProfile().getThumbnailImageUrl();
 
-                    Intent intent = new Intent(MainActivity.this, MainActivity2.class);
-//                    Log.e("test1", String.valueOf(userid));
-//                    Log.e("test2", userName);
-//                    Log.e("test3", userThumbnail);
-                    Log.e("test kakao account", email);
+                    Log.e("test", id);
+                    Log.e("test", nickName);
+                    Log.e("test", profile);
 
-                    intent.putExtra("userid", userid);
-                    intent.putExtra("userName", userName);
-                    intent.putExtra("userThumbnail", userThumbnail);
-                    startActivity(intent);
+
+
+                    Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.249.18.77:80").addConverterFactory(GsonConverterFactory.create()).build();
+                    RetrofitUser jsonPlaceHolderApi = retrofit.create(RetrofitUser.class);
+                    Call<registrationresult> reg = jsonPlaceHolderApi.postRequest(nickName, profile, id);
+                    Call<testresult> call = jsonPlaceHolderApi.test(id);
+
+                    //카카오톡은 계정이 db에 없어도 바로 들어가도록 등록
+                    reg.enqueue(new Callback<registrationresult>() {
+                        @Override
+                        public void onResponse(Call<registrationresult> call, Response<registrationresult> response) {
+                            Log.e("main1", "reach here");
+                        }
+
+                        @Override
+                        public void onFailure(Call<registrationresult> call, Throwable t) {
+
+                        }
+                    });
+
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+                    //로그인 후 Mainactivity2 이동
+                    call.enqueue(new Callback<testresult>() {
+                        @Override
+                        public void onResponse(Call<testresult> call, Response<testresult> response) {
+                            Log.e("main test", response.body().toString());
+                            nickName = response.body().getNickName();
+                            profile = response.body().getProfile();
+                            Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+
+                            intent.putExtra("userName", nickName);
+                            intent.putExtra("userThumbnail", profile);
+                            intent.putExtra("userEmail", id);
+                            startActivity(intent);
+                        }
+
+                        @Override
+                        public void onFailure(Call<testresult> call, Throwable t) {
+
+                        }
+                    });
+
                 }else{
                     Log.e("test", "fail");
                 }
@@ -76,10 +133,69 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         profile_image = findViewById(R.id.profile_image);
 
-
-
         ImageView kakao_login;
         kakao_login = (ImageView) findViewById(R.id.kakao_login);
+
+        Button Log_in;
+        Log_in = (Button) findViewById(R.id.start_log_in);
+
+        Log_in.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditText input_id = (EditText) findViewById(R.id.input_id);
+                id = input_id.getText().toString();
+
+                Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.249.18.77:80").addConverterFactory(GsonConverterFactory.create()).build();
+                RetrofitUser jsonPlaceHolderApi = retrofit.create(RetrofitUser.class);
+                Call<testresult> call = jsonPlaceHolderApi.test(id);
+
+                // 카톡 말고 계정으로 로그인
+                call.enqueue(new Callback<testresult>() {
+                    @Override
+                    public void onResponse(Call<testresult> call, Response<testresult> response) {
+                        if(response.body() != null) {
+                            nickName = response.body().getNickName();
+                            profile = response.body().getProfile();
+                            Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+
+                            intent.putExtra("userName", nickName);
+                            intent.putExtra("userThumbnail", profile);
+                            intent.putExtra("userEmail", id);
+                            startActivity(intent);
+                        }else{
+                            Toast.makeText(MainActivity.this, "계정이 없습니다", Toast.LENGTH_SHORT).show();
+                            Log.e("Test", "no account");
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<testresult> call, Throwable t) {
+
+                    }
+                });
+            }
+        }) ;
+
+
+        //등록하러 가는 버튼
+        TextView buttonReg = (TextView) findViewById(R.id.new_account) ;
+        buttonReg.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.e("degud", "test");
+
+                Intent intent = new Intent(MainActivity.this, MainRegistration.class);
+
+
+//                intent.putExtra("userid", userid);
+//                intent.putExtra("userName", userName);
+//                intent.putExtra("userThumbnail", userThumbnail);
+                startActivity(intent);
+            }
+        });
+
+
+        //카카오톡으로 로그인, 위에꺼는 카톡 깔려 있을때, 밑에꺼는 카카오톡 안깔렸을때
         kakao_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -91,8 +207,6 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.makeText(MainActivity.this, "Login success", Toast.LENGTH_SHORT).show();
                                 updateKakaoLoginUi();
 
-                                Intent intent = new Intent( MainActivity.this, MainActivity2.class);
-                                startActivity(intent);
 
                             }
                             if (throwable != null){
@@ -109,15 +223,6 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.makeText(MainActivity.this, "Login success", Toast.LENGTH_SHORT).show();
                                 updateKakaoLoginUi();
 
-//                                    Intent intent = new Intent(MainActivity.this, MainLogin.class);
-//                                    Log.e("test1", String.valueOf(userid));
-//                                    Log.e("test2", userName);
-//                                    Log.e("test3", userThumbnail);
-//
-//                                    intent.putExtra("userid", userid);
-//                                    intent.putExtra("userName", userName);
-//                                    intent.putExtra("userThumbnail", userThumbnail);
-//                                    startActivity(intent);
                             }
                             if (throwable != null){
                                 Toast.makeText(MainActivity.this, "Login Fail", Toast.LENGTH_SHORT).show();
@@ -131,18 +236,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-//        binding = ActivityMainBinding.inflate(getLayoutInflater());
-//        setContentView(binding.getRoot());
-//
-//        BottomNavigationView navView = findViewById(R.id.nav_view);
-////         Passing each menu ID as a set of Ids because each
-////         menu should be considered as top level destinations.
-//        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-//                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_chatroom, R.id.navigation_setting)
-//                .build();
-//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
-////        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-//        NavigationUI.setupWithNavController(binding.navView, navController);
+
     }
 
 
