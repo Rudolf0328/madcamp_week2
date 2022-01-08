@@ -1,5 +1,6 @@
 package com.example.madcamp_week2
 
+//import com.example.madcamp_week2.ui.chatroom.ChatRoomFragment
 import com.example.madcamp_week2.ui.dashboard.FragmentTwo
 import com.example.madcamp_week2.ui.home.FragmentOne
 
@@ -30,10 +31,12 @@ class MainActivity2 : AppCompatActivity() {
         this.intent.putExtra("id", intent.getLongExtra("userid", 0).toString())
         this.intent.putExtra("userName", intent.getStringExtra("userName")!!)
         this.intent.putExtra("userThumnail", intent.getStringExtra("userThumbnail")!!)
+        this.intent.putExtra("userEmail", intent.getStringExtra("userEmail")!!)
 
         Log.e("id", intent.getLongExtra("userid", 0).toString())
         Log.e("userName", intent.getStringExtra("userName")!!)
         Log.e("userThumnail", intent.getStringExtra("userThumbnail")!!)
+        Log.e("userEmail", intent.getStringExtra("userEmail")!!)
 
         bnv_main.run {
             setOnItemSelectedListener {

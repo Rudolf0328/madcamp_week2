@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Madcamp_week2">
         <activity
+            android:name=".MainRegistration"
+            android:exported="false" />
+        <activity
             android:name=".ui.chat.ChatActivity_kt"
             android:exported="false" />
         <activity
