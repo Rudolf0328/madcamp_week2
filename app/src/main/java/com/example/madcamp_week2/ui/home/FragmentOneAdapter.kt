@@ -15,7 +15,7 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
 
-class CustomAdapter(private val context: Context, private val dataList: ArrayList<DataVo>) :
+class CustomAdapter(private val context: Context, private val dataList: ArrayList<Feed>) :
     RecyclerView.Adapter<CustomAdapter.ItemViewHolder>() {
 
     var mPosition = 0
@@ -28,7 +28,7 @@ class CustomAdapter(private val context: Context, private val dataList: ArrayLis
         mPosition = position
     }
 
-    fun addItem(dataVo: DataVo) {
+    fun addItem(dataVo: Feed) {
         dataList.add(dataVo)
         //갱신처리 반드시 해야함
         notifyDataSetChanged()
@@ -49,11 +49,11 @@ class CustomAdapter(private val context: Context, private val dataList: ArrayLis
         private val date = itemView.findViewById<TextView>(R.id.date)
 
         @RequiresApi(Build.VERSION_CODES.O)
-        fun bind(dataVo: DataVo, context: Context) {
+        fun bind(dataVo: Feed, context: Context) {
             //사진 처리
-            if (dataVo.photo != "") {
+            if (dataVo.image != "") {
                 val resourceId =
-                    context.resources.getIdentifier(dataVo.photo, "drawable", context.packageName)
+                    context.resources.getIdentifier(dataVo.image, "drawable", context.packageName)
 
                 if (resourceId > 0) {
                     userPhoto.setImageResource(resourceId)
@@ -65,7 +65,7 @@ class CustomAdapter(private val context: Context, private val dataList: ArrayLis
             }
 
             //TextView에 데이터 세팅
-            userName.text = dataVo.name
+            userName.text = dataVo.nickName
             val today = LocalDate.now()
             val Strnow = today.format(DateTimeFormatter.ofPattern("MM-dd-yyyy"))
             val year = today.getYear().toString()
@@ -83,16 +83,17 @@ class CustomAdapter(private val context: Context, private val dataList: ArrayLis
     }
 
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.bind(dataList[position], context)
         holder.itemView.setOnClickListener { view ->
             setPosition(position)
-            Toast.makeText(view.context, "이름:" + dataList[position].name + " " + "전화번호:" + dataList[position].phonenumber + " 클릭!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(view.context, "이름:" + dataList[position].nickName + " " + "전화번호:" + dataList[position].content + " 클릭!", Toast.LENGTH_SHORT).show()
         }
 
         holder.itemView.setOnLongClickListener { view ->
             setPosition(position)
-            Toast.makeText(view.context, "이름:" + dataList[position].name + " " + "전화번호:" + dataList[position].phonenumber + " 롱클릭!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(view.context, "이름:" + dataList[position].nickName + " " + "전화번호:" + dataList[position].content + " 롱클릭!", Toast.LENGTH_SHORT).show()
             return@setOnLongClickListener true
         }
     }
