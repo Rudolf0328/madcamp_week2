@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/navigation_chatroom"
-        android:name="com.example.madcamp_week2.ui.chatroom.ChatRoomFragment"
+        android:name="com.example.madcamp_week2.ui.chatroom.FragmentThree"
         android:label="@string/title_chatroom"
         tools:layout="@layout/fragment_chatroom" />
 

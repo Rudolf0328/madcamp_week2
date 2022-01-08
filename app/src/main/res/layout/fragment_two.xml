@@ -10,52 +10,44 @@
 <!--    tools:context=".MainActivity">-->
 
     <TextView
-        android:id="@+id/frag1_title"
-        android:layout_width="409dp"
-        android:layout_height="45dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="7dp"
-        android:layout_marginStart="18dp"
-        android:gravity="left"
-        android:paddingBottom="10dp"
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:background="@color/orange_yellow"
+        android:gravity="center"
+        android:padding="10dp"
         android:text="피드"
-        android:textColor="@color/black"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.003"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/message"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/ic_baseline_forward_5_24"
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="45dp"
+        android:layout_height="60dp"
+        android:background="#00FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.927"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_forward_5_24" />
 
     <GridView
         android:id="@+id/gridView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_margin="1dp"
         android:horizontalSpacing="3dp"
         android:numColumns="4"
         android:padding="2dp"
+        android:paddingBottom="?attr/actionBarSize"
         android:verticalSpacing="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frag1_title"
-        android:paddingBottom="?attr/actionBarSize"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
 
     </GridView>
 

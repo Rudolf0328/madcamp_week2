@@ -4,38 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.chatroom.ChatRoomFragment">
+    tools:context=".ui.chatroom.FragmentThree">
 
 
     <TextView
         android:id="@+id/frag1_title"
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="7dp"
-        android:gravity="left"
+        android:background="@color/orange_yellow"
+        android:gravity="center"
+        android:padding="10dp"
         android:text="밥팟"
-        android:textColor="@color/black"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/chat_btn_add2"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/ic_baseline_add_comment_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.927"
-        app:layout_constraintStart_toStartOf="parent"
+    <ImageButton
+        android:id="@+id/chat_room_add"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="#00FFFFFF"
+        android:src="@drawable/ic_baseline_add_24"
+        app:layout_constraintEnd_toEndOf="@+id/frag1_title"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView

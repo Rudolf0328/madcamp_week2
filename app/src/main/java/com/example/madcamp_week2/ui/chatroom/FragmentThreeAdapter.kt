@@ -52,6 +52,7 @@ class FragmentThreeAdapter : RecyclerView.Adapter<FragmentThreeAdapter.ViewHolde
             tvCount.text = count
             itemView.setOnClickListener { // TODO : connect to chatting activity
                 val intent = Intent(context, ChatActivity_kt::class.java)
+                intent.putExtra("chatRoomName", chatRoom.name)
                 context.startActivity(intent)
             }
         }

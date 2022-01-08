@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 //import com.example.madcamp_week2.ui.chatroom.data.Dummy
@@ -17,7 +18,7 @@ import com.example.madcamp_week2.ui.chatroom.data.Dummy_kt
 class FragmentThree : Fragment() {
     lateinit var chatRoomRcvAdapter: FragmentThreeAdapter
     var rcvChatRoom: RecyclerView? = null
-    var btnAdd: Button? = null
+    var btnAdd: ImageButton? = null
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -28,7 +29,7 @@ class FragmentThree : Fragment() {
         chatRoomRcvAdapter = FragmentThreeAdapter()
         rcvChatRoom = view.findViewById<View>(R.id.chat_rcv_list2) as RecyclerView
         rcvChatRoom!!.adapter = chatRoomRcvAdapter
-        btnAdd = view.findViewById<View>(R.id.chat_btn_add2) as Button
+        btnAdd = view.findViewById<View>(R.id.chat_room_add) as ImageButton
         for (i in 0..2) {
             Dummy_kt.chatRoomList[i].toStringChatRoom()
         }

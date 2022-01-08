@@ -67,12 +67,12 @@ class FragmentOne : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val v = inflater.inflate(R.layout.fragment_one, container, false)
-        val recycler_view = v.findViewById<RecyclerView>(R.id.recycler_view)
-        val image = v.findViewById<ImageView>(R.id.loadingImage)
-        val logout = v.findViewById<Button>(R.id.logout)
+        val recycler_view = v.findViewById<RecyclerView>(R.id.one_rcv_list)
+        val image = v.findViewById<ImageView>(R.id.one_imgv_profile)
+        val logout = v.findViewById<ImageButton>(R.id.one_btn_logout)
 
-        val textview_userNick = v.findViewById<TextView>(R.id.textView1)
-        val textview_userId = v.findViewById<TextView>(R.id.textView2)
+        val textview_userNick = v.findViewById<TextView>(R.id.one_tv_name)
+        val textview_userId = v.findViewById<TextView>(R.id.one_tv_id)
 
         id = requireActivity().intent.getStringExtra("userEmail")!!
         nickName = requireActivity().intent.getStringExtra("userName")!!
