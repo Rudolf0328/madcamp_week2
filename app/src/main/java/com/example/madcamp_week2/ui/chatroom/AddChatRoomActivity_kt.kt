@@ -49,7 +49,8 @@ class AddChatRoomActivity_kt : AppCompatActivity() {
             val server = retrofit.create(RetrofitChatRoom::class.java)
             server.postChatRoom(name, ownerId, maxUser, img).enqueue((object: Callback<chatroomresult> {
                 override fun onFailure(call: Call<chatroomresult>, t: Throwable) {
-                    Log.e("response", "error")
+                    Log.e("response1111", "error")
+                    t.printStackTrace()
                 }
 
                 override fun onResponse(
