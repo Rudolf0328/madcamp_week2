@@ -27,6 +27,7 @@ class MainActivity2 : AppCompatActivity() {
         var bnv_main = findViewById<BottomNavigationView>(R.id.nav_view)
 
         val intent = intent
+        println("난 못 받음")
 
         this.intent.putExtra("id", intent.getLongExtra("userid", 0).toString())
         this.intent.putExtra("userName", intent.getStringExtra("userName")!!)

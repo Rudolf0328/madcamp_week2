@@ -73,11 +73,12 @@ public class MainActivity extends AppCompatActivity {
                     Log.e("test", profile);
 
 
-
+                    System.out.println("reach here1");
                     Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.249.18.77:80").addConverterFactory(GsonConverterFactory.create()).build();
                     RetrofitUser jsonPlaceHolderApi = retrofit.create(RetrofitUser.class);
                     Call<registrationresult> reg = jsonPlaceHolderApi.postRequest(nickName, profile, id);
                     Call<testresult> call = jsonPlaceHolderApi.test(id);
+                    System.out.println("reach here1");
 
                     //카카오톡은 계정이 db에 없어도 바로 들어가도록 등록
                     reg.enqueue(new Callback<registrationresult>() {
@@ -88,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
                         @Override
                         public void onFailure(Call<registrationresult> call, Throwable t) {
-
+                            t.printStackTrace();
                         }
                     });
 
@@ -138,6 +139,8 @@ public class MainActivity extends AppCompatActivity {
 
         Button Log_in;
         Log_in = (Button) findViewById(R.id.start_log_in);
+
+        System.out.println("reach here");
 
         Log_in.setOnClickListener(new Button.OnClickListener() {
             @Override
@@ -205,6 +208,7 @@ public class MainActivity extends AppCompatActivity {
                         public Unit invoke(OAuthToken oAuthToken, Throwable throwable) {
                             if (oAuthToken != null){
                                 Toast.makeText(MainActivity.this, "Login success", Toast.LENGTH_SHORT).show();
+                                System.out.println("dddddddd");
                                 updateKakaoLoginUi();
 
 
@@ -221,6 +225,7 @@ public class MainActivity extends AppCompatActivity {
                         public Unit invoke(OAuthToken oAuthToken, Throwable throwable) {
                             if (oAuthToken != null){
                                 Toast.makeText(MainActivity.this, "Login success", Toast.LENGTH_SHORT).show();
+                                System.out.println("dsfasdfasdfadsffdsa");
                                 updateKakaoLoginUi();
 
                             }
