@@ -13,3 +13,14 @@ data class User(
     val userThumnail: String,
     @SerializedName("id")
     val id: String, )
+
+data class ChatRoom (
+    @SerializedName("name")
+    val name: String,
+    @SerializedName("ownerId")
+    val ownerId: String,
+    @SerializedName("maxUser")
+    val maxUser: String,
+    @SerializedName("image")
+    val image: String
+    )
