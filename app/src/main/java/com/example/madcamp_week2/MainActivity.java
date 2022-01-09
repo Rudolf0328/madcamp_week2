@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.madcamp_week2.databinding.ActivityMainBinding;
-import com.example.madcamp_week2.ui.chatroom.AddChatRoomActivity_kt;
+//import com.example.madcamp_week2.ui.chatroom.AddChatRoomActivity_kt;
 import com.example.madcamp_week2.ui.home.RetrofitUser;
 import com.example.madcamp_week2.ui.home.registrationresult;
 import com.example.madcamp_week2.ui.home.testresult;
