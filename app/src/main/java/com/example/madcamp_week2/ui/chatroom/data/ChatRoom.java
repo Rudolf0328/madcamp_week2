@@ -1,16 +1,20 @@
 package com.example.madcamp_week2.ui.chatroom.data;
 
+import java.util.ArrayList;
+
 public class ChatRoom {
     private String name;
-    private int img, total, present;
+    private int img, maxUser, present;
+    private ArrayList<String> people;
 
     public ChatRoom() {}
 
-    public ChatRoom(int img, String name, int total, int present) {
+    public ChatRoom(int img, String name, int maxUser, int present, ArrayList<String> people) {
         this.img = img;
         this.name = name;
-        this.total = total;
+        this.maxUser = maxUser;
         this.present = present;
+        this.people = people;
     }
 
     public String getName() {
@@ -29,12 +33,12 @@ public class ChatRoom {
         this.img = img;
     }
 
-    public int getTotal() {
-        return total;
+    public int getMaxUser() {
+        return maxUser;
     }
 
-    public void setTotal(int total) {
-        this.total = total;
+    public void setMaxUser(int total) {
+        this.maxUser = total;
     }
 
     public int getPresent() {
@@ -45,7 +49,11 @@ public class ChatRoom {
         this.present = present;
     }
 
+    public void setPeople(ArrayList<String> people) { this.people = people; }
+
+    public ArrayList<String> getPeople() { return people; }
+
     public void toStringChatRoom() {
-        System.out.println("img: " + img + ", name: " + name + ", total: " + total + ", present: " + present);
+        System.out.println("img: " + img + ", name: " + name + ", total: " + maxUser + ", present: " + present + ", people" + people);
     }
 }

@@ -36,6 +36,8 @@ public class ChatRoomRcvAdapter extends RecyclerView.Adapter<ChatRoomRcvAdapter.
     }
 
     public int getItemCount() {
+        if (chatRoomList == null)
+            return 0;
         return chatRoomList.size();
     }
 
@@ -60,7 +62,7 @@ public class ChatRoomRcvAdapter extends RecyclerView.Adapter<ChatRoomRcvAdapter.
                     .load(chatRoom.getImg())
                     .into(imgvRoom);
             tvName.setText(chatRoom.getName());
-            String count = chatRoom.getPresent() + "/" + chatRoom.getTotal();
+            String count = chatRoom.getPresent() + "/" + chatRoom.getMaxUser();
             tvCount.setText(count);
 
 
@@ -69,6 +71,7 @@ public class ChatRoomRcvAdapter extends RecyclerView.Adapter<ChatRoomRcvAdapter.
                 public void onClick(View view) {
                     // TODO : connect to chatting activity
                     Intent intent = new Intent(context, ChatActivity.class);
+                    intent.putExtra("name", chatRoom.getName());
                     context.startActivity(intent);
                 }
             });
