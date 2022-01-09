@@ -3,6 +3,8 @@ package com.example.madcamp_week2.ui.home
 import android.app.AlertDialog
 import android.content.Intent
 import android.content.res.AssetManager
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -46,6 +48,14 @@ class FragmentOne : Fragment() {
     lateinit var nickName: String
     lateinit var userThumnail: String
 
+//    fun byteArrayToBitmap( byteArray: ByteArray ):Bitmap
+//    {
+//        Log.e("conversion", byteArray.toString())
+//        Log.e("conversion", byteArray.size.toString())
+//        val bitmap = BitmapFactory.decodeByteArray( byteArray, 0, byteArray.size) ;
+//        return bitmap
+//    }
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -82,12 +92,14 @@ class FragmentOne : Fragment() {
         Log.e("frag1", nickName!!)
         Log.e("frag1", userThumnail!!)
 
+//        Log.e("frag1", byteArrayToBitmap(userThumnail.toByteArray()).toString())
+
         textview_userId.text = id
         textview_userNick.text = nickName
-        if(userThumnail == "none"){
-
-        }else {
+        if(userThumnail.startsWith("http")){
             Glide.with(image).load(userThumnail).circleCrop().into(image)
+        }else {
+            Glide.with(image).load("https://i.imgur.com/ven7RTB.jpg").circleCrop().into(image)
         }
 //        Glide.with(image).load(userThumnail).circleCrop().into(image)
 
