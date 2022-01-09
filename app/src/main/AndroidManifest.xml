@@ -17,10 +17,10 @@
             android:name=".MainRegistration"
             android:exported="false" />
         <activity
-            android:name=".ui.chat.ChatActivity_kt"
+            android:name=".ui.chat.ChatActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.chatroom.AddChatRoomActivity_kt"
+            android:name=".ui.chatroom.AddChatRoomActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

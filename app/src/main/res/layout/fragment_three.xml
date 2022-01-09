@@ -34,6 +34,7 @@
         app:layout_constraintEnd_toEndOf="@+id/frag1_title"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/chat_rcv_list2"
         android:layout_width="413dp"

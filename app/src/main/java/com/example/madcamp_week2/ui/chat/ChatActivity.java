@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,6 +19,7 @@ public class ChatActivity extends Activity {
     private ArrayList<Chat> dataList;
     ImageButton btnSend;
     EditText edtMessage;
+    TextView tvName;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,6 +37,9 @@ public class ChatActivity extends Activity {
 
         edtMessage = (EditText) findViewById(R.id.chat_edt_message);
         btnSend = (ImageButton) findViewById(R.id.chat_btn_send);
+        tvName = (TextView) findViewById(R.id.chat_tv_name);
+
+        tvName.setText(getIntent().getStringExtra("name"));
 
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
