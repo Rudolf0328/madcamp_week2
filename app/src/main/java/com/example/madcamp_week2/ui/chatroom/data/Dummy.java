@@ -19,9 +19,9 @@ public class Dummy {
         };
 
         {
-            add(new ChatRoom(R.drawable.ic_chadayun, "밥 먹을 사람~~!!", 4, 2, people));
-            add(new ChatRoom(R.drawable.ic_babo, "카레가 땡긴다...!", 5, 1, people));
-            add(new ChatRoom(R.drawable.ic_chadayunbabo, "오늘은 덮밥이지!", 10, 3, people));
+//            add(new ChatRoom(R.drawable.ic_chadayun, "밥 먹을 사람~~!!", 4, 2, people));
+//            add(new ChatRoom(R.drawable.ic_babo, "카레가 땡긴다...!", 5, 1, people));
+//            add(new ChatRoom(R.drawable.ic_chadayunbabo, "오늘은 덮밥이지!", 10, 3, people));
         }
     };
 }

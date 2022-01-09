@@ -34,21 +34,24 @@ public class ChatRoomFragment extends Fragment {
     ChatRoomRcvAdapter chatRoomRcvAdapter;
     RecyclerView rcvChatRoom;
     ImageButton btnAdd;
-    ArrayList<ChatRoom> chatRoomArrayList = new ArrayList<>();
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ViewGroup view = (ViewGroup) inflater.inflate(R.layout.fragment_three, container, false);
 
+        ArrayList<ChatRoom> chatRoomArrayList = new ArrayList<>();
+
         chatRoomRcvAdapter = new ChatRoomRcvAdapter();
         rcvChatRoom = (RecyclerView) view.findViewById(R.id.chat_rcv_list2);
         rcvChatRoom.setAdapter(chatRoomRcvAdapter);
 
+        chatRoomRcvAdapter.notifyDataSetChanged();
+
         btnAdd = (ImageButton) view.findViewById(R.id.chat_room_add);
 
-        for (int i = 0; i < 3; i++) {
-            Dummy.chatRoomList.get(i).toStringChatRoom();
-        }
+//        for (int i = 0; i < 3; i++) {
+//            Dummy.chatRoomList.get(i).toStringChatRoom();
+//        }
 
 //        chatRoomArrayList = connectingServer();
 //        chatRoomRcvAdapter.submitList(chatRoomArrayList);
@@ -76,8 +79,9 @@ public class ChatRoomFragment extends Fragment {
                 }
                 for(int i = 0; i<result.size(); i++) {
                     ArrayList<String> people = result.get(i).getPeople();
+                    System.out.println(people);
                     int currentUser = people.size();
-                    ChatRoom chatRoom = new ChatRoom(result.get(i).getImg(), result.get(i).getName(), result.get(i).getMaxUser(), currentUser, people);
+                    ChatRoom chatRoom = new ChatRoom(result.get(i).get_id(), result.get(i).getImage(), result.get(i).getName(), result.get(i).getMaxUser(), currentUser, people);
                     chatRoomArrayList.add(chatRoom);
 //                    makeMarker(result.get(i).getId(),result.get(i).getLat(),result.get(i).getLng());
 //                    Log.e("id", String.valueOf(result.get(i).getLat())+ " "+String.valueOf(result.get(i).getLng()));

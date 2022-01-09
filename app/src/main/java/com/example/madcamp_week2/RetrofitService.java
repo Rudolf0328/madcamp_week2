@@ -1,6 +1,8 @@
 package com.example.madcamp_week2;
 
+import com.example.madcamp_week2.ui.chatroom.data.ArrayResult;
 import com.example.madcamp_week2.ui.chatroom.data.ChatRoom;
+import com.example.madcamp_week2.ui.chatroom.data.Result;
 
 import java.util.ArrayList;
 
@@ -22,6 +24,9 @@ public interface RetrofitService {
 
     @GET("api/chatroom/")
     Call<ArrayList<ChatRoom>> getAllChatRoom();
+
+    @POST("api/chatroom/")
+    Call<ArrayResult> addChatRoom(@Body ChatRoom chatRoom);
 
 //    @POST("api/")
 //    Call<ChatRoom> addToilet(@Body ChatRoom chatRoom);

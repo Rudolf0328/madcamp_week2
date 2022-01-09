@@ -59,10 +59,10 @@ public class ChatRoomRcvAdapter extends RecyclerView.Adapter<ChatRoomRcvAdapter.
         void onBind(ChatRoom chatRoom) {
             System.out.println("on bind");
             Glide.with(itemView)
-                    .load(chatRoom.getImg())
+                    .load(chatRoom.getImage())
                     .into(imgvRoom);
             tvName.setText(chatRoom.getName());
-            String count = chatRoom.getPresent() + "/" + chatRoom.getMaxUser();
+            String count = chatRoom.getCurrentUser() + "/" + chatRoom.getMaxUser();
             tvCount.setText(count);
 
 
