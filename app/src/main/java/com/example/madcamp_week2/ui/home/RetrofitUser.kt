@@ -28,15 +28,3 @@ interface RetrofitUser{
     fun deleteUser(@Path("post")post: String): Call<deleteUserResult>
 
 }
-
-interface RetrofitChatRoom {
-    @GET("api/chatroom/61d82b5000eeaee3bb7e4ce1")
-    fun getChatRoom(): Call<chatroomresult>
-
-    @FormUrlEncoded
-    @POST("api/chatroom/")
-    fun postChatRoom(@Field("name")name: String,
-    @Field("ownerId")ownerId:String,
-    @Field("maxUser")maxUser: String,
-    @Field("image")image: String) : Call<chatroomresult>
-}

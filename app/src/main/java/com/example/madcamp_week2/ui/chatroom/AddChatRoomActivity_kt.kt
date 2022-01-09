@@ -11,10 +11,10 @@ import android.widget.EditText
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.madcamp_week2.R
-import com.example.madcamp_week2.ui.home.RetrofitChatRoom
+import com.example.madcamp_week2.ui.chatroom.data.RetrofitChatRoom
 import com.example.madcamp_week2.ui.home.RetrofitUser
 import com.example.madcamp_week2.ui.home.User
-import com.example.madcamp_week2.ui.home.chatroomresult
+import com.example.madcamp_week2.ui.chatroom.data.chatroomresult
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
