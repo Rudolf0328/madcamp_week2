@@ -152,6 +152,16 @@
         app:layout_constraintEnd_toStartOf="@+id/chat_tv_time"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_access_time_24" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginBottom="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/room_imgv_img"
+        app:srcCompat="@drawable/ic_crown1" />
     <!--    <ImageView-->
 <!--        android:id="@+id/room_tv_nine"-->
 <!--        android:layout_width="30dp"-->
