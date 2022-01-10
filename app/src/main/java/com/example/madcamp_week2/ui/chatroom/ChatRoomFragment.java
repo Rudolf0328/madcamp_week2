@@ -58,7 +58,7 @@ public class ChatRoomFragment extends Fragment {
 //        chatRoomRcvAdapter.submitList(Dummy.chatRoomList);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://172.10.18.77:80/")
+                .baseUrl("http://192.249.18.77:80/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         RetrofitService retrofitService = retrofit.create(RetrofitService.class);

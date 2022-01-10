@@ -6,26 +6,153 @@
     android:layout_height="match_parent"
     tools:context=".ui.chatroom.AddChatRoomActivity">
 
-    <ImageView
-        android:id="@+id/add_chat_room_img"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+    <EditText
+        android:id="@+id/add_chat_room_edt_time"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:layout_marginTop="152dp"
+        android:ems="10"
+        android:hint="시간을 입력하세요."
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/img_rice" />
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="528dp"
+        android:text="시간"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_chat_room_edt_maxUser" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:text="채팅방 사진을 골라주세요"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@id/add_chat_guide_top"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/add_chat_img_one"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:background="#FFF3DA"
+        app:layout_constraintBottom_toTopOf="@id/add_chat_img_four"
+        app:layout_constraintEnd_toStartOf="@id/add_chat_img_two"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/add_chat_guide_top"
+        app:srcCompat="@drawable/ic_steak" />
+
+    <ImageView
+        android:id="@+id/add_chat_img_two"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toTopOf="@id/add_chat_img_five"
+        app:layout_constraintEnd_toStartOf="@id/add_chat_img_three"
+        app:layout_constraintStart_toEndOf="@id/add_chat_img_one"
+        app:layout_constraintTop_toTopOf="@id/add_chat_guide_top"
+        app:srcCompat="@drawable/ic_chadayun" />
+
+    <ImageView
+        android:id="@+id/add_chat_img_three"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toTopOf="@id/add_chat_img_six"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/add_chat_img_two"
+        app:layout_constraintTop_toTopOf="@id/add_chat_guide_top"
+        app:srcCompat="@drawable/ic_chadayunbabo" />
+
+    <ImageView
+        android:id="@+id/add_chat_img_four"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toTopOf="@id/add_chat_img_seven"
+        app:layout_constraintEnd_toStartOf="@id/add_chat_img_five"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/add_chat_img_one"
+        app:srcCompat="@drawable/ic_chicken" />
+
+    <ImageView
+        android:id="@+id/add_chat_img_five"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toTopOf="@id/add_chat_img_eight"
+        app:layout_constraintEnd_toStartOf="@id/add_chat_img_six"
+        app:layout_constraintStart_toEndOf="@id/add_chat_img_four"
+        app:layout_constraintTop_toBottomOf="@id/add_chat_img_two"
+        app:srcCompat="@drawable/ic_pizza" />
+
+    <ImageView
+        android:id="@+id/add_chat_img_six"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toTopOf="@id/add_chat_img_nine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/add_chat_img_five"
+        app:layout_constraintTop_toBottomOf="@id/add_chat_img_three"
+        app:srcCompat="@drawable/ic_hanburger" />
+
+    <ImageView
+        android:id="@+id/add_chat_img_seven"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toBottomOf="@id/add_chat_guide_bottom"
+        app:layout_constraintEnd_toStartOf="@id/add_chat_img_two"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/add_chat_img_four"
+        app:srcCompat="@drawable/ic_soup" />
+
+    <ImageView
+        android:id="@+id/add_chat_img_eight"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toBottomOf="@id/add_chat_guide_bottom"
+        app:layout_constraintEnd_toStartOf="@id/add_chat_img_three"
+        app:layout_constraintStart_toEndOf="@id/add_chat_img_one"
+        app:layout_constraintTop_toBottomOf="@id/add_chat_img_five"
+        app:srcCompat="@drawable/ic_tteokbokki" />
+
+    <ImageView
+        android:id="@+id/add_chat_img_nine"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toBottomOf="@id/add_chat_guide_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@id/add_chat_img_two"
+        app:layout_constraintTop_toBottomOf="@id/add_chat_img_six"
+        app:srcCompat="@drawable/ic_spaguetti" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="8dp"
         android:text="채팅방 이름"
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/add_chat_room_edt_name"
-        app:layout_constraintStart_toEndOf="@+id/add_chat_room_img"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/add_chat_guide_bottom" />
 
     <EditText
         android:id="@+id/add_chat_room_edt_name"
@@ -36,18 +163,18 @@
         android:hint="채팅방 이름을 입력하세요."
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/add_chat_room_img"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:text="총 인원 수"
         android:textColor="#000000"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/add_chat_room_img"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/add_chat_room_edt_name" />
 
     <EditText
@@ -59,8 +186,8 @@
         android:hint="총 인원 수를 입력하세요."
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/add_chat_room_img"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <Button
         android:id="@+id/add_chat_room_btn_add"
@@ -71,4 +198,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/add_chat_guide_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="41dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/add_chat_guide_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="259dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

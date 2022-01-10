@@ -33,8 +33,8 @@ public class AddChatRoomActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_chat_room);
-
-        imgImage = findViewById(R.id.add_chat_room_img);
+//
+//        imgImage = findViewById(R.id.add_chat_room_img);
         edtName = findViewById(R.id.add_chat_room_edt_name);
         edtMaxUser = findViewById(R.id.add_chat_room_edt_maxUser);
         btnAdd = findViewById(R.id.add_chat_room_btn_add);
@@ -54,7 +54,7 @@ public class AddChatRoomActivity extends AppCompatActivity {
 //                Result result = new Result(chatRoom);
 
                 Retrofit retrofit = new Retrofit.Builder()
-                        .baseUrl("http://172.10.18.77:80/")
+                        .baseUrl("http://192.249.18.77:80/")
                         .addConverterFactory(GsonConverterFactory.create())
                         .build();
                 RetrofitService retrofitService = retrofit.create(RetrofitService.class);

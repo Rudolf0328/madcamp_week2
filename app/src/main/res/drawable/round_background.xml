@@ -6,7 +6,7 @@
         android:radius="30dp"/>
     <stroke
         android:width="3dp"
-        android:color="#7777FF"
+        android:color="#7C7C7C"
         android:dashGap="3dp"
         android:dashWidth="5dp" />
 </shape>
