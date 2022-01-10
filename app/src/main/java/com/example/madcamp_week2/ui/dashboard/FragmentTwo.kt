@@ -3,27 +3,28 @@ package com.example.madcamp_week2.ui.dashboard
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.madcamp_week2.R
-import android.database.DataSetObserver
-
-import android.database.DataSetObservable
-import android.media.Image
-import android.net.Uri
-import android.os.Build
-import android.provider.MediaStore
-import android.util.Log
-import android.widget.*
+import android.widget.BaseAdapter
+import android.widget.GridView
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.annotation.RequiresApi
-import org.w3c.dom.Text
-import java.io.File
-
-import java.nio.file.Files.size
-import java.nio.file.Paths
+import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
+import com.example.madcamp_week2.R
+import com.example.madcamp_week2.ui.home.Feed
+import com.example.madcamp_week2.ui.home.RetrofitUser
+import com.example.madcamp_week2.ui.home.getEveryFeedResult
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
@@ -36,7 +37,7 @@ private const val ARG_PARAM2 = "param2"
 lateinit var v:View
 
 class FragmentTwo : Fragment() {
-    val feedlist = ArrayList<dataFeed>()
+    var feedlist = ArrayList<Feed>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,6 +52,7 @@ class FragmentTwo : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        feedlist = ArrayList<Feed>()
         v = inflater.inflate(R.layout.fragment_two, container, false)
 
         val mAdapter = FoodAdapter(v.context, feedlist)
@@ -74,9 +76,36 @@ class FragmentTwo : Fragment() {
 
 
 
-        for(i:Int in 0..30){
-            feedlist.add(dataFeed(R.drawable.istockphoto, tempdate, content))
-        }
+//        for(i:Int in 0..30){
+//            feedlist.add(dataFeed(R.drawable.istockphoto, tempdate, content))
+//        }
+
+        val retrofit = Retrofit.Builder().baseUrl("http://192.249.18.77:80").addConverterFactory(
+            GsonConverterFactory.create()).build()
+        var server = retrofit.create(RetrofitUser::class.java)
+
+        //유저 정보 불러오기
+        server.getEveryFeed().enqueue((object: Callback<getEveryFeedResult> {
+            override fun onFailure(call: Call<getEveryFeedResult>, t: Throwable) {
+                Log.e("get user", "error")
+
+            }
+            override fun onResponse(call: Call<getEveryFeedResult>, response: Response<getEveryFeedResult>) {
+                if(response.body() == null){
+                    Log.e("get user", response.body().toString())
+                }else{
+                    Log.e("get user", response.body().toString())
+                    Log.e("get user", response.body()!!.feeds.size.toString())
+
+                    val feedListget = response.body()!!
+
+                    for(i: Int in 0..feedListget.feeds.size-1){
+                        (gridview.adapter as FoodAdapter).addItem(feedListget.feeds[i])
+                    }
+
+                }
+            }
+        }))
 
         return v
     }
@@ -85,26 +114,30 @@ class FragmentTwo : Fragment() {
 
 }
 
-class FoodAdapter(private var context: Context?, private var feedlist: ArrayList<dataFeed>) : BaseAdapter() {
+class FoodAdapter(private var context: Context?, private var feedlist: ArrayList<Feed>) : BaseAdapter() {
 
     @SuppressLint("ViewHolder")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        val food : dataFeed = feedlist[position]
+        val food : Feed = feedlist[position]
         val inflater = context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val foodView : View = inflater.inflate(R.layout.frag2_gridview_image, null)
         val photo = foodView.findViewById<ImageView>(R.id.imageView1)
-        photo.setImageResource(food.photo)
+
+        Glide.with(photo).load(food.image).into(photo)
 
         foodView.setOnLongClickListener {
             Log.e("test", "here")
-            val dialogView = inflater.inflate(R.layout.frag2_view_item_layout, null)
+            val dialogView = inflater.inflate(R.layout.feed_layout, null)
 
-            val image = dialogView.findViewById<ImageView>(R.id.userImg)
-            val date = dialogView.findViewById<TextView>(R.id.date)
-            val content = dialogView.findViewById<TextView>(R.id.userName)
-            image.setImageResource(food.photo)
-            date.text = food.date
-            content.text = food.contents
+            val image = dialogView.findViewById<ImageView>(R.id.feed_image)
+            val date = dialogView.findViewById<TextView>(R.id.feed_date)
+            val content = dialogView.findViewById<TextView>(R.id.feed_content)
+
+
+            Glide.with(image).load(food.image).into(image)
+
+            date.text = food.time
+            content.text = food.content
 
             val alertDialog = AlertDialog.Builder(v.context)
                 .setView(dialogView)
@@ -116,13 +149,7 @@ class FoodAdapter(private var context: Context?, private var feedlist: ArrayList
             return@setOnLongClickListener true
         }
 
-//        foodView.imageView.setOnClickListener {
-//            val intent = Intent(context, FoodDetailActivity::class.java)
-//            intent.putExtra("name", food.name!!)
-//            intent.putExtra("des", food.des!!)
-//            intent.putExtra("image", food.image!!)
-//            context!!.startActivity(intent)
-//        }
+
         return foodView
     }
 
@@ -136,6 +163,12 @@ class FoodAdapter(private var context: Context?, private var feedlist: ArrayList
 
     override fun getCount(): Int {
         return feedlist.size
+    }
+
+    fun addItem(dataVo: Feed) {
+        feedlist.add(dataVo)
+        //갱신처리 반드시 해야함
+        notifyDataSetChanged()
     }
 
 }
