@@ -5,69 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:background="@color/orange_yellow"
-        android:gravity="center"
-        android:padding="10dp"
-        android:text="밥스타그램"
-        android:textAlignment="textStart"
-        android:textColor="#FFFFFF"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="RtlCompat" />
-
-    <ImageButton
-        android:id="@+id/one_btn_logout"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:background="#00FFFFFF"
-        app:layout_constraintEnd_toStartOf="@+id/feed_post"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_person_remove_24" />
-
-    <ImageButton
-        android:id="@+id/feed_post"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:background="#00FFFFFF"
-        app:layout_constraintEnd_toStartOf="@+id/one_btn_menu"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_post_add_24" />
-
-    <ImageButton
-        android:id="@+id/one_btn_menu"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:background="#00FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_more_vert_24" />
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/userProfile"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="125dp">
 
             <ImageView
                 android:id="@+id/one_imgv_profile"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_margin="10dp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_baseline_account_box_24" />
@@ -104,7 +59,6 @@
                 android:text="몇개"
                 android:textColor="#000000"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/one_tv_id"
                 app:layout_constraintTop_toBottomOf="@+id/one_tv_post" />
@@ -117,22 +71,34 @@
                 android:text="아이디"
                 android:textColor="#000000"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/one_tv_post_num"
                 app:layout_constraintStart_toEndOf="@+id/one_imgv_profile"
                 app:layout_constraintTop_toBottomOf="@+id/one_tv_name" />
+
+            <Button
+                android:id="@+id/userProfile_edit_photo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:layout_marginBottom="4dp"
+                android:text="사진"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/userProfile_edit_send"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="72dp"
+                android:layout_marginBottom="7dp"
+                android:text="보내기"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/one_rcv_list"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
