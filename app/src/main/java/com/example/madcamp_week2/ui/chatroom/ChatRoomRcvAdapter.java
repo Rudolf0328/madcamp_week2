@@ -36,6 +36,8 @@ public class ChatRoomRcvAdapter extends RecyclerView.Adapter<ChatRoomRcvAdapter.
     }
 
     public int getItemCount() {
+        if (chatRoomList == null)
+            return 0;
         return chatRoomList.size();
     }
 
@@ -57,10 +59,10 @@ public class ChatRoomRcvAdapter extends RecyclerView.Adapter<ChatRoomRcvAdapter.
         void onBind(ChatRoom chatRoom) {
             System.out.println("on bind");
             Glide.with(itemView)
-                    .load(chatRoom.getImg())
+                    .load(chatRoom.getImage())
                     .into(imgvRoom);
             tvName.setText(chatRoom.getName());
-            String count = chatRoom.getPresent() + "/" + chatRoom.getTotal();
+            String count = chatRoom.getCurrentUser() + "/" + chatRoom.getMaxUser();
             tvCount.setText(count);
 
 
@@ -69,6 +71,7 @@ public class ChatRoomRcvAdapter extends RecyclerView.Adapter<ChatRoomRcvAdapter.
                 public void onClick(View view) {
                     // TODO : connect to chatting activity
                     Intent intent = new Intent(context, ChatActivity.class);
+                    intent.putExtra("name", chatRoom.getName());
                     context.startActivity(intent);
                 }
             });

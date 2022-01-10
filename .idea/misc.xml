@@ -47,6 +47,24 @@
         <entry key="..\:/madcamp2/madcamp_week2/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.22083333333333333" />
         <entry key="..\:/madcamp2/madcamp_week2/app/src/main/res/xml/network_security_config.xml" value="0.15942028985507245" />
         <entry key="app/src/main/res/layout/activity_main2.xml" value="0.21197916666666666" />
+        <entry key="app/src/main/res/layout/activity_main_registration.xml" value="0.171875" />
+        <entry key="app/src/main/res/layout/chat_center_item.xml" value="0.21197916666666666" />
+        <entry key="app/src/main/res/layout/chat_left_item.xml" value="0.5644096724946723" />
+        <entry key="app/src/main/res/layout/chat_right_item.xml" value="0.21197916666666666" />
+        <entry key="app/src/main/res/layout/chat_room_item.xml" value="0.21197916666666666" />
+        <entry key="app/src/main/res/layout/frag2_gridview_image.xml" value="0.14947916666666666" />
+        <entry key="app/src/main/res/layout/frag2_view_item_layout.xml" value="0.171875" />
+        <entry key="app/src/main/res/layout/fragment_chatroom.xml" value="0.21197916666666666" />
+        <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.21197916666666666" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.21197916666666666" />
+        <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.21197916666666666" />
+        <entry key="app/src/main/res/layout/fragment_one.xml" value="0.3665373537279091" />
+        <entry key="app/src/main/res/layout/fragment_one_new.xml" value="0.2917771883289125" />
+        <entry key="app/src/main/res/layout/fragment_setting.xml" value="0.21197916666666666" />
+        <entry key="app/src/main/res/layout/fragment_three.xml" value="0.3419811320754717" />
+        <entry key="app/src/main/res/layout/fragment_two.xml" value="0.32664756446991405" />
+        <entry key="app/src/main/res/layout/view_item_layout.xml" value="0.14947916666666666" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.21197916666666666" />
       </map>
     </option>
   </component>
