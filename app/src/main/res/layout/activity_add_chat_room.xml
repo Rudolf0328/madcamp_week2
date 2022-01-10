@@ -6,32 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".ui.chatroom.AddChatRoomActivity">
 
-    <EditText
-        android:id="@+id/add_chat_room_edt_time"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_marginTop="152dp"
-        android:ems="10"
-        android:hint="시간을 입력하세요."
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.473"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
     <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="528dp"
-        android:text="시간"
-        android:textColor="#000000"
-        android:textSize="20sp"
+        android:id="@+id/add_chat_room_tv_title"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:background="@color/orange_yellow"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="밥 먹을 사람을 구하자~!"
+        android:textAlignment="textStart"
+        android:textColor="#FDFDFD"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_chat_room_edt_maxUser" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView3"
@@ -45,12 +35,14 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@id/add_chat_guide_top"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/add_chat_room_tv_title" />
 
     <ImageView
         android:id="@+id/add_chat_img_one"
         android:layout_width="0dp"
         android:layout_height="70dp"
+        android:layout_marginLeft="10dp"
+        android:background="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@id/add_chat_img_four"
         app:layout_constraintEnd_toStartOf="@id/add_chat_img_two"
         app:layout_constraintStart_toStartOf="parent"
@@ -71,6 +63,7 @@
         android:id="@+id/add_chat_img_three"
         android:layout_width="0dp"
         android:layout_height="70dp"
+        android:layout_marginRight="10dp"
         app:layout_constraintBottom_toTopOf="@id/add_chat_img_six"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/add_chat_img_two"
@@ -81,6 +74,7 @@
         android:id="@+id/add_chat_img_four"
         android:layout_width="0dp"
         android:layout_height="70dp"
+        android:layout_marginLeft="10dp"
         app:layout_constraintBottom_toTopOf="@id/add_chat_img_seven"
         app:layout_constraintEnd_toStartOf="@id/add_chat_img_five"
         app:layout_constraintStart_toStartOf="parent"
@@ -101,6 +95,7 @@
         android:id="@+id/add_chat_img_six"
         android:layout_width="0dp"
         android:layout_height="70dp"
+        android:layout_marginRight="10dp"
         app:layout_constraintBottom_toTopOf="@id/add_chat_img_nine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/add_chat_img_five"
@@ -111,6 +106,7 @@
         android:id="@+id/add_chat_img_seven"
         android:layout_width="0dp"
         android:layout_height="70dp"
+        android:layout_marginLeft="10dp"
         app:layout_constraintBottom_toBottomOf="@id/add_chat_guide_bottom"
         app:layout_constraintEnd_toStartOf="@id/add_chat_img_two"
         app:layout_constraintStart_toStartOf="parent"
@@ -131,6 +127,7 @@
         android:id="@+id/add_chat_img_nine"
         android:layout_width="0dp"
         android:layout_height="70dp"
+        android:layout_marginRight="10dp"
         app:layout_constraintBottom_toBottomOf="@id/add_chat_guide_bottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -157,7 +154,8 @@
         android:id="@+id/add_chat_room_edt_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:ems="10"
         android:hint="채팅방 이름을 입력하세요."
         android:inputType="textPersonName"
@@ -180,13 +178,39 @@
         android:id="@+id/add_chat_room_edt_maxUser"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:ems="10"
         android:hint="총 인원 수를 입력하세요."
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:inputType="time"
+        android:text="시간"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_chat_room_edt_maxUser" />
+
+    <EditText
+        android:id="@+id/add_chat_room_edt_time"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:ems="10"
+        android:hint="시간을 입력하세요."
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <Button
         android:id="@+id/add_chat_room_btn_add"
@@ -203,12 +227,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="41dp" />
+        app:layout_constraintGuide_begin="110dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/add_chat_guide_bottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="259dp" />
+        app:layout_constraintGuide_begin="365dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
