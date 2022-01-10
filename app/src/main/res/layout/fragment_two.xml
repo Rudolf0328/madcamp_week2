@@ -39,7 +39,7 @@
         android:layout_height="0dp"
         android:layout_margin="1dp"
         android:horizontalSpacing="3dp"
-        android:numColumns="4"
+        android:numColumns="3"
         android:padding="2dp"
         android:paddingBottom="?attr/actionBarSize"
         android:verticalSpacing="3dp"
