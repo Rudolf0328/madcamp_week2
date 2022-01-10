@@ -51,7 +51,6 @@
         android:id="@+id/add_chat_img_one"
         android:layout_width="0dp"
         android:layout_height="70dp"
-        android:background="#FFF3DA"
         app:layout_constraintBottom_toTopOf="@id/add_chat_img_four"
         app:layout_constraintEnd_toStartOf="@id/add_chat_img_two"
         app:layout_constraintStart_toStartOf="parent"
