@@ -1,23 +1,22 @@
 package com.example.madcamp_week2
 
 //import com.example.madcamp_week2.ui.chatroom.ChatRoomFragment
-import com.example.madcamp_week2.ui.dashboard.FragmentTwo
-import com.example.madcamp_week2.ui.home.FragmentOne
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+//import com.example.madcamp_week2.ui.chatroom.FragmentThree
+//import com.example.madcamp_week2.ui.chatroom.FragmentThree
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.example.madcamp_week2.ui.chatroom.ChatRoomFragment
-//import com.example.madcamp_week2.ui.chatroom.FragmentThree
-//import com.example.madcamp_week2.ui.chatroom.FragmentThree
+import com.example.madcamp_week2.ui.chatroom.FragmentThree
+import com.example.madcamp_week2.ui.dashboard.FragmentTwo
+import com.example.madcamp_week2.ui.home.FragmentOne
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity2 : AppCompatActivity() {
     private val fragmentOne by lazy { FragmentOne() }
     private val fragmentTwo by lazy { FragmentTwo() }
-    private val fragmentThree by lazy { ChatRoomFragment() }
+    private val fragmentThree by lazy { FragmentThree() }
 //    private val fragmentFour by lazy { FragmentFour() }
 
 
