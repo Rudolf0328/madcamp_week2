@@ -16,6 +16,9 @@ data class UserInfo(val nickName: String, val profile: String, val feeds: ArrayL
 
 data class getEveryFeedResult(val feeds:ArrayList<Feed>)
 
+data class joinRoomResult(val result: String)
+
+
 
 interface RetrofitUser{
 
@@ -53,6 +56,18 @@ interface RetrofitUser{
     //모든 피드 정보 가져오기
     @GET("api/feed")
     fun getEveryFeed(): Call<getEveryFeedResult>
+
+    //피드 삭제
+    @DELETE("api/feed/{post}")
+    fun deleteFeed(): Call<getEveryFeedResult>
+
+
+   //방에 참가
+    @FormUrlEncoded
+    @PUT("api/chatroom/{post}")
+    fun joinRoom(@Path("post") roomid: String,
+                 @Field("userId") userId:String
+    ): Call<joinRoomResult>
 
     @DELETE("api/user/{post}")
     fun deleteUser(@Path("post")post: String): Call<deleteUserResult>

@@ -28,7 +28,7 @@ class FragmentThree : Fragment() {
         super.onCreate(savedInstanceState)
         val view = inflater.inflate(R.layout.fragment_three, container, false) as ViewGroup
         val chatRoomArrayList = ArrayList<ChatRoom>()
-        val chatRoomRcvAdapter = FragmentThreeAdapter(view.context)
+        val chatRoomRcvAdapter = FragmentThreeAdapter(view.context, requireActivity().intent.getStringExtra("userEmail")!!)
         val rcvChatRoom = view.findViewById<RecyclerView>(R.id.chat_rcv_list2)
         rcvChatRoom.adapter = chatRoomRcvAdapter
         chatRoomRcvAdapter!!.notifyDataSetChanged()

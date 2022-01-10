@@ -84,7 +84,7 @@ class FragmentTwo : Fragment() {
             GsonConverterFactory.create()).build()
         var server = retrofit.create(RetrofitUser::class.java)
 
-        //유저 정보 불러오기
+        //피드 모두 불러오기
         server.getEveryFeed().enqueue((object: Callback<getEveryFeedResult> {
             override fun onFailure(call: Call<getEveryFeedResult>, t: Throwable) {
                 Log.e("get user", "error")
@@ -132,18 +132,50 @@ class FoodAdapter(private var context: Context?, private var feedlist: ArrayList
             val image = dialogView.findViewById<ImageView>(R.id.feed_image)
             val date = dialogView.findViewById<TextView>(R.id.feed_date)
             val content = dialogView.findViewById<TextView>(R.id.feed_content)
+            val userName = dialogView.findViewById<TextView>(R.id.feed_userName)
+
+            val retrofit = Retrofit.Builder().baseUrl("http://192.249.18.77:80").addConverterFactory(
+                GsonConverterFactory.create()).build()
+            var server = retrofit.create(RetrofitUser::class.java)
+
+            //피드 모두 불러오기
+            server.getFeed(food._id).enqueue((object: Callback<Feed> {
+                override fun onFailure(call: Call<Feed>, t: Throwable) {
+                    Log.e("get user", "error")
+
+                }
+                override fun onResponse(call: Call<Feed>, response: Response<Feed>) {
+                    if(response.body() == null){
+                        Log.e("get user", response.body().toString())
+                    }else{
+                        val nickName = response.body()!!.nickName
+                        Glide.with(image).load(food.image).into(image)
+
+                        date.text = food.time
+                        content.text = food.content
+                        userName.text = nickName
+
+                        val alertDialog = AlertDialog.Builder(v.context)
+                            .setView(dialogView)
+                            .create()
+
+                        alertDialog.show()
 
 
-            Glide.with(image).load(food.image).into(image)
+                    }
+                }
+            }))
 
-            date.text = food.time
-            content.text = food.content
-
-            val alertDialog = AlertDialog.Builder(v.context)
-                .setView(dialogView)
-                .create()
-
-            alertDialog.show()
+//            Glide.with(image).load(food.image).into(image)
+//
+//            date.text = food.time
+//            content.text = food.content
+//
+//            val alertDialog = AlertDialog.Builder(v.context)
+//                .setView(dialogView)
+//                .create()
+//
+//            alertDialog.show()
 
 
             return@setOnLongClickListener true
