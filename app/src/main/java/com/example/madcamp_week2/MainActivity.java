@@ -5,6 +5,8 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -35,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     private ImageView profile_image;
+    private Animation anim;
+    private ImageView imgAndroid;
 
     String nickName = "temp";
     String profile = "temp";
@@ -116,6 +120,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         profile_image = findViewById(R.id.profile_image);
+
+        setTheme(R.style.SplashOneTheme);
+//        init();
 
         ImageView kakao_login;
         kakao_login = (ImageView) findViewById(R.id.kakao_login);

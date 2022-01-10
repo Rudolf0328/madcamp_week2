@@ -24,7 +24,7 @@ class AddChatRoomActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_chat_room)
 
-        val imgImage = findViewById<ImageView>(R.id.add_chat_room_img)
+//        val imgImage = findViewById<ImageView>(R.id.add_)
         val edtName = findViewById<EditText>(R.id.add_chat_room_edt_name)
         val edtMaxUser = findViewById<EditText>(R.id.add_chat_room_edt_maxUser)
         val btnAdd = findViewById<Button>(R.id.add_chat_room_btn_add)

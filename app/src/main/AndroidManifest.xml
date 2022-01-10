@@ -47,6 +47,15 @@
                     android:scheme="kakaof729563e0418d89c42e611a6b86153d4" />
             </intent-filter>
         </activity>
+<!--        <activity android:name=".SplashOneActivity"-->
+<!--            android:exported="true"-->
+<!--            android:theme="@style/SplashOneTheme"-->
+<!--            android:screenOrientation="portrait" >-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
     </application>
 
 </manifest>
