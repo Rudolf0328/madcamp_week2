@@ -47,7 +47,9 @@
         android:scaleType="fitCenter"
         app:layout_constraintStart_toEndOf="@id/room_imgv_img"
         app:layout_constraintTop_toBottomOf="@+id/room_imgv_img"
-        app:srcCompat="@drawable/ic_question" />
+        app:srcCompat="@drawable/ic_question"
+        android:visibility="invisible"
+        />
 
     <ImageView
         android:id="@+id/room_tv_two"
@@ -59,7 +61,9 @@
         android:scaleType="fitCenter"
         app:layout_constraintStart_toEndOf="@id/room_tv_one"
         app:layout_constraintTop_toBottomOf="@+id/room_imgv_img"
-        app:srcCompat="@drawable/ic_question" />
+        app:srcCompat="@drawable/ic_question"
+        android:visibility="invisible"
+        />
 
     <ImageView
         android:id="@+id/room_tv_three"
@@ -71,7 +75,9 @@
         android:scaleType="fitCenter"
         app:layout_constraintStart_toEndOf="@id/room_tv_two"
         app:layout_constraintTop_toBottomOf="@+id/room_imgv_img"
-        app:srcCompat="@drawable/ic_question" />
+        app:srcCompat="@drawable/ic_question"
+        android:visibility="invisible"
+        />
 
     <ImageView
         android:id="@+id/room_tv_four"
@@ -83,7 +89,9 @@
         android:scaleType="fitCenter"
         app:layout_constraintStart_toEndOf="@id/room_tv_three"
         app:layout_constraintTop_toBottomOf="@+id/room_imgv_img"
-        app:srcCompat="@drawable/ic_question" />
+        app:srcCompat="@drawable/ic_question"
+        android:visibility="invisible"
+        />
 
     <ImageView
         android:id="@+id/room_tv_five"
@@ -95,7 +103,9 @@
         android:scaleType="fitCenter"
         app:layout_constraintStart_toEndOf="@id/room_tv_four"
         app:layout_constraintTop_toBottomOf="@+id/room_imgv_img"
-        app:srcCompat="@drawable/ic_question" />
+        app:srcCompat="@drawable/ic_question"
+        android:visibility="invisible"
+        />
 
     <ImageView
         android:id="@+id/room_tv_six"
@@ -107,7 +117,9 @@
         android:scaleType="fitCenter"
         app:layout_constraintStart_toEndOf="@id/room_tv_five"
         app:layout_constraintTop_toBottomOf="@+id/room_imgv_img"
-        app:srcCompat="@drawable/ic_question" />
+        app:srcCompat="@drawable/ic_question"
+        android:visibility="invisible"
+        />
 
     <ImageView
         android:id="@+id/room_tv_seven"
@@ -119,7 +131,9 @@
         android:scaleType="fitCenter"
         app:layout_constraintStart_toEndOf="@id/room_tv_six"
         app:layout_constraintTop_toBottomOf="@+id/room_imgv_img"
-        app:srcCompat="@drawable/ic_question" />
+        app:srcCompat="@drawable/ic_question"
+        android:visibility="invisible"
+        />
 
     <ImageView
         android:id="@+id/room_tv_eight"
@@ -131,7 +145,9 @@
         android:scaleType="fitCenter"
         app:layout_constraintStart_toEndOf="@id/room_tv_seven"
         app:layout_constraintTop_toBottomOf="@+id/room_imgv_img"
-        app:srcCompat="@drawable/ic_question" />
+        app:srcCompat="@drawable/ic_question"
+        android:visibility="invisible"
+        />
 
     <TextView
         android:id="@+id/chat_tv_time"
