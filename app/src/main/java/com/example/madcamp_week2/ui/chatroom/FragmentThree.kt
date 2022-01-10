@@ -58,6 +58,8 @@ class FragmentThree : Fragment() {
 
         btnAdd.setOnClickListener {
             val intent = Intent(context, AddChatRoomActivity::class.java)
+            val id = requireActivity().intent.getStringExtra("userEmail")!!
+            intent.putExtra("userEmail", id)
             startActivity(intent)
         }
         return view
