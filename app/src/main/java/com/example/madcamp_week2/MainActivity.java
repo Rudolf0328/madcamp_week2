@@ -2,47 +2,24 @@ package com.example.madcamp_week2;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.SimpleCursorTreeAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.madcamp_week2.databinding.ActivityMainBinding;
-//import com.example.madcamp_week2.ui.chatroom.AddChatRoomActivity_kt;
 import com.example.madcamp_week2.ui.home.RetrofitUser;
 import com.example.madcamp_week2.ui.home.registrationresult;
 import com.example.madcamp_week2.ui.home.testresult;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-import com.example.madcamp_week2.databinding.ActivityMainBinding;
 import com.kakao.sdk.auth.model.OAuthToken;
-import com.kakao.sdk.common.KakaoSdk;
-import com.kakao.sdk.user.UserApi;
 import com.kakao.sdk.user.UserApiClient;
 import com.kakao.sdk.user.model.User;
-import com.kakao.sdk.common.KakaoSdk;
-
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 
 import kotlin.Unit;
 import kotlin.jvm.functions.Function2;
@@ -52,6 +29,8 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+//import com.example.madcamp_week2.ui.chatroom.AddChatRoomActivity_kt;
+
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
@@ -60,35 +39,6 @@ public class MainActivity extends AppCompatActivity {
     String nickName = "temp";
     String profile = "temp";
     String id = "temp";
-
-//    private Bitmap getBitmap(String url) {
-//        URL imgUrl = null;
-//        HttpURLConnection connection = null;
-//        InputStream is = null;
-//        Bitmap retBitmap = null;
-//        System.out.println("reach here1");
-//        try{
-//            System.out.println("reach here3");
-//            imgUrl = new URL(url);
-//            connection = (HttpURLConnection) imgUrl.openConnection();
-//            connection.setDoInput(true);
-//            System.out.println("reach here4");
-//            connection.connect();
-//            System.out.println("reach here5");
-//            is = connection.getInputStream();
-//            retBitmap = BitmapFactory.decodeStream(is);
-//            System.out.println("reach here2");
-//            System.out.println(retBitmap.getHeight());
-//        }catch(Exception e) {
-//            e.printStackTrace();
-//            return null;
-//        }finally {
-//            if(connection!=null) {
-//                connection.disconnect();
-//            } return retBitmap;
-//        }
-//    }
-
 
 
     void updateKakaoLoginUi() {

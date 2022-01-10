@@ -2,17 +2,17 @@ package com.example.madcamp_week2.ui.home
 
 import android.content.Context
 import android.os.Build
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.madcamp_week2.R
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 
 
 class CustomAdapter(private val context: Context, private val dataList: ArrayList<Feed>) :
@@ -44,41 +44,49 @@ class CustomAdapter(private val context: Context, private val dataList: ArrayLis
     }
 
     inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val userPhoto = itemView.findViewById<ImageView>(R.id.userImg)
-        private val userName = itemView.findViewById<TextView>(R.id.userName)
-        private val date = itemView.findViewById<TextView>(R.id.date)
+        private val userPhoto = itemView.findViewById<ImageView>(R.id.feed_image)
+        private val userName = itemView.findViewById<TextView>(R.id.feed_userName)
+        private val date = itemView.findViewById<TextView>(R.id.feed_date)
+        private val frag1_content = itemView.findViewById<TextView>(R.id.feed_content)
 
         @RequiresApi(Build.VERSION_CODES.O)
         fun bind(dataVo: Feed, context: Context) {
-            //사진 처리
-            if (dataVo.image != "") {
-                val resourceId =
-                    context.resources.getIdentifier(dataVo.image, "drawable", context.packageName)
-
-                if (resourceId > 0) {
-                    userPhoto.setImageResource(resourceId)
-                } else {
-                    userPhoto.setImageResource(R.drawable.restmb_idxmake)
-                }
-            } else {
-                userPhoto.setImageResource(R.drawable.restmb_idxmake)
-            }
-
-            //TextView에 데이터 세팅
+            Log.e("iu image", dataVo.image)
+            Glide.with(context).load(dataVo.image).into(userPhoto)
             userName.text = dataVo.nickName
-            val today = LocalDate.now()
-            val Strnow = today.format(DateTimeFormatter.ofPattern("MM-dd-yyyy"))
-            val year = today.getYear().toString()
-            val month = today.getMonth().toString()
-            val day = today.getDayOfMonth().toString()
+            date.text = dataVo.time
+            frag1_content.text = dataVo.content
 
-            date.text = Strnow
+            //사진 처리
+//            if (dataVo.image != "") {
+//                val resourceId =
+//                    context.resources.getIdentifier(dataVo.image, "drawable", context.packageName)
+//
+//                if (resourceId > 0) {
+//                    userPhoto.setImageResource(resourceId)
+//                } else {
+//                    userPhoto.setImageResource(R.drawable.restmb_idxmake)
+//                }
+//            } else {
+//                userPhoto.setImageResource(R.drawable.restmb_idxmake)
+//            }
+
+//
+//            //TextView에 데이터 세팅
+//            userName.text = dataVo.nickName
+//            val today = LocalDate.now()
+//            val Strnow = today.format(DateTimeFormatter.ofPattern("MM-dd-yyyy"))
+//            val year = today.getYear().toString()
+//            val month = today.getMonth().toString()
+//            val day = today.getDayOfMonth().toString()
+//
+//            date.text = Strnow
         }
     }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.view_item_layout, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.feed_layout, parent, false)
         return ItemViewHolder(view)
     }
 

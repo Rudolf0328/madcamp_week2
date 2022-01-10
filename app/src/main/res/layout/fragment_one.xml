@@ -25,12 +25,12 @@
         android:layout_width="45dp"
         android:layout_height="60dp"
         android:background="#00FFFFFF"
-        app:layout_constraintEnd_toStartOf="@+id/one_btn_post"
+        app:layout_constraintEnd_toStartOf="@+id/feed_post"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_person_remove_24" />
 
     <ImageButton
-        android:id="@+id/one_btn_post"
+        android:id="@+id/feed_post"
         android:layout_width="45dp"
         android:layout_height="60dp"
         android:background="#00FFFFFF"
