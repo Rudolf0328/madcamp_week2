@@ -21,6 +21,7 @@ interface RetrofitService_kt {
     fun addChatRoom(@Field("name") name:String,
                     @Field("owner") ownerId:String,
                     @Field("maxUser") maxUser:Int,
-                    @Field("image") image:String)
+                    @Field("image") image:Int,
+                    @Field("time")time:String)
     :Call<ArrayResult>
 }

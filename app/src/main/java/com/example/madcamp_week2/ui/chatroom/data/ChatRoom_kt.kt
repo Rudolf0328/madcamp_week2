@@ -9,5 +9,7 @@ data class ChatRoom (
     val people: ArrayList<String>,
     val maxUser: String,
     val currentUser: Int,
-    val status: Boolean
+    val status: Boolean,
+    val image: Int,
+    val time: String
 )
