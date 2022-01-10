@@ -79,7 +79,7 @@
         <entry key="app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.165625" />
         <entry key="app/src/main/res/drawable/round_background.xml" value="0.4024703793783561" />
         <entry key="app/src/main/res/font/font_custom.xml" value="0.20208333333333334" />
-        <entry key="app/src/main/res/layout/activity_add_chat_room.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_add_chat_room.xml" value="0.38390196483511757" />
         <entry key="app/src/main/res/layout/activity_chat.xml" value="0.21197916666666666" />
         <entry key="app/src/main/res/layout/activity_chat_kt.xml" value="0.171875" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.171875" />
@@ -89,7 +89,7 @@
         <entry key="app/src/main/res/layout/chat_center_item.xml" value="0.21197916666666666" />
         <entry key="app/src/main/res/layout/chat_left_item.xml" value="0.5644096724946723" />
         <entry key="app/src/main/res/layout/chat_right_item.xml" value="0.21197916666666666" />
-        <entry key="app/src/main/res/layout/chat_room_item.xml" value="0.21197916666666666" />
+        <entry key="app/src/main/res/layout/chat_room_item.xml" value="0.491904503691774" />
         <entry key="app/src/main/res/layout/feed_layout.xml" value="0.17889492753623187" />
         <entry key="app/src/main/res/layout/frag2_gridview_image.xml" value="0.14947916666666666" />
         <entry key="app/src/main/res/layout/frag2_view_item_layout.xml" value="0.171875" />

@@ -41,11 +41,138 @@
         android:id="@+id/room_tv_one"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_margin="5dp"
+        android:layout_marginLeft="2dp"
         android:background="@drawable/round_background"
         android:padding="5dp"
         android:scaleType="fitCenter"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/room_imgv_img"
         app:layout_constraintTop_toBottomOf="@+id/room_imgv_img"
         app:srcCompat="@drawable/ic_question" />
+
+    <ImageView
+        android:id="@+id/room_tv_two"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="7dp"
+        android:background="@drawable/round_background"
+        android:padding="5dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toEndOf="@id/room_tv_one"
+        app:layout_constraintTop_toBottomOf="@+id/room_imgv_img"
+        app:srcCompat="@drawable/ic_question" />
+
+    <ImageView
+        android:id="@+id/room_tv_three"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="7dp"
+        android:background="@drawable/round_background"
+        android:padding="5dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toEndOf="@id/room_tv_two"
+        app:layout_constraintTop_toBottomOf="@+id/room_imgv_img"
+        app:srcCompat="@drawable/ic_question" />
+
+    <ImageView
+        android:id="@+id/room_tv_four"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="7dp"
+        android:background="@drawable/round_background"
+        android:padding="5dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toEndOf="@id/room_tv_three"
+        app:layout_constraintTop_toBottomOf="@+id/room_imgv_img"
+        app:srcCompat="@drawable/ic_question" />
+
+    <ImageView
+        android:id="@+id/room_tv_five"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="7dp"
+        android:background="@drawable/round_background"
+        android:padding="5dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toEndOf="@id/room_tv_four"
+        app:layout_constraintTop_toBottomOf="@+id/room_imgv_img"
+        app:srcCompat="@drawable/ic_question" />
+
+    <ImageView
+        android:id="@+id/room_tv_six"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="7dp"
+        android:background="@drawable/round_background"
+        android:padding="5dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toEndOf="@id/room_tv_five"
+        app:layout_constraintTop_toBottomOf="@+id/room_imgv_img"
+        app:srcCompat="@drawable/ic_question" />
+
+    <ImageView
+        android:id="@+id/room_tv_seven"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="7dp"
+        android:background="@drawable/round_background"
+        android:padding="5dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toEndOf="@id/room_tv_six"
+        app:layout_constraintTop_toBottomOf="@+id/room_imgv_img"
+        app:srcCompat="@drawable/ic_question" />
+
+    <ImageView
+        android:id="@+id/room_tv_eight"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="7dp"
+        android:background="@drawable/round_background"
+        android:padding="5dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toEndOf="@id/room_tv_seven"
+        app:layout_constraintTop_toBottomOf="@+id/room_imgv_img"
+        app:srcCompat="@drawable/ic_question" />
+
+    <TextView
+        android:id="@+id/chat_tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="70dp"
+        android:text="17 : 00"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        app:layout_constraintEnd_toStartOf="@+id/chat_tv_time"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_access_time_24" />
+    <!--    <ImageView-->
+<!--        android:id="@+id/room_tv_nine"-->
+<!--        android:layout_width="30dp"-->
+<!--        android:layout_height="30dp"-->
+<!--        android:layout_margin="5dp"-->
+<!--        android:background="@drawable/round_background"-->
+<!--        android:padding="5dp"-->
+<!--        android:scaleType="fitCenter"-->
+<!--        app:layout_constraintStart_toEndOf="@id/room_tv_eight"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/room_imgv_img"-->
+<!--        app:srcCompat="@drawable/ic_question" />-->
+<!--    <ImageView-->
+<!--        android:id="@+id/room_tv_ten"-->
+<!--        android:layout_width="30dp"-->
+<!--        android:layout_height="30dp"-->
+<!--        android:layout_margin="5dp"-->
+<!--        android:background="@drawable/round_background"-->
+<!--        android:padding="5dp"-->
+<!--        android:scaleType="fitCenter"-->
+<!--        app:layout_constraintStart_toEndOf="@id/room_tv_nine"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/room_imgv_img"-->
+<!--        app:srcCompat="@drawable/ic_question" />-->
+
 </androidx.constraintlayout.widget.ConstraintLayout>
