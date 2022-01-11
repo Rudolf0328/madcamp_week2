@@ -2,6 +2,7 @@ package com.example.madcamp_week2.ui.chatroom
 
 //import com.example.madcamp_week2.ui.home.ChatRoom
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -21,6 +22,15 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.*
 
 class FragmentThree : Fragment() {
+    fun refreshFragment() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            requireFragmentManager().beginTransaction().detach(this).commitNow();
+            requireFragmentManager().beginTransaction().attach(this).commitNow();
+        } else {
+            requireFragmentManager().beginTransaction().detach(this).attach(this).commit();
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,6 +43,11 @@ class FragmentThree : Fragment() {
         rcvChatRoom.adapter = chatRoomRcvAdapter
         chatRoomRcvAdapter!!.notifyDataSetChanged()
         val btnAdd = view.findViewById<ImageButton>(R.id.chat_room_add)
+        val refresh = view.findViewById<ImageButton>(R.id.chat_room_refresh)
+
+        refresh.setOnClickListener {
+            refreshFragment()
+        }
 
 
         val retrofit = Retrofit.Builder().baseUrl("http://192.249.18.77:80/")
