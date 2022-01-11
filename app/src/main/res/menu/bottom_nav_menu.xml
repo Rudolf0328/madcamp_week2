@@ -16,9 +16,9 @@
         android:icon="@drawable/ic_baseline_people_alt_24"
         android:title="@string/title_chatroom" />
 
-    <item
-        android:id="@+id/navigation_setting"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/title_home" />
+<!--    <item-->
+<!--        android:id="@+id/navigation_setting"-->
+<!--        android:icon="@drawable/ic_home_black_24dp"-->
+<!--        android:title="@string/title_home" />-->
 
 </menu>

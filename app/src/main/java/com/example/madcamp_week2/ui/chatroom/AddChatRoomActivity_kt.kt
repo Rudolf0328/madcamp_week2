@@ -1,13 +1,12 @@
 package com.example.madcamp_week2.ui.chatroom
 
 //import com.example.madcamp_week2.ui.home.ChatRoom
+import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.madcamp_week2.R
 import com.example.madcamp_week2.RetrofitService_kt
@@ -27,7 +26,7 @@ class AddChatRoomActivity : AppCompatActivity() {
 
         val edtName = findViewById<EditText>(R.id.add_chat_room_edt_name)
         val edtMaxUser = findViewById<EditText>(R.id.add_chat_room_edt_maxUser)
-        val editTime = findViewById<EditText>(R.id.add_chat_room_edt_time)
+        val editTime = findViewById<TextView>(R.id.add_chat_room_edt_time)
 
         var imageSet = 0
 
@@ -210,6 +209,28 @@ class AddChatRoomActivity : AppCompatActivity() {
 
 
         val btnAdd = findViewById<Button>(R.id.add_chat_room_btn_add)
+        val btnTime = findViewById<Button>(R.id.add_chat_room_edt_time)
+
+        btnTime.setOnClickListener {
+            var dateString = ""
+            var timeString = ""
+            val cal = Calendar.getInstance()    //캘린더뷰 만들기
+            val dateSetListener = DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+                dateString = "${year}년 ${month+1}월 ${dayOfMonth}일"
+                editTime.text = dateString + " / " + timeString
+            }
+            val timeSetListener = TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->
+                timeString = "${hourOfDay}시 ${minute}분"
+                editTime.text = dateString + " / " + timeString
+            }
+            TimePickerDialog(this, timeSetListener, cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE),true).show()
+
+
+            DatePickerDialog(this, dateSetListener, cal.get(Calendar.YEAR),cal.get(Calendar.MONTH),cal.get(Calendar.DAY_OF_MONTH)).show()
+
+        }
+
+
         btnAdd.setOnClickListener{
             if(imageSet == 0) {
                 Toast.makeText(baseContext, "이미지를 선택해주세요", Toast.LENGTH_SHORT).show()
@@ -270,5 +291,6 @@ class AddChatRoomActivity : AppCompatActivity() {
                 })
             }
         }
+
     }
 }
