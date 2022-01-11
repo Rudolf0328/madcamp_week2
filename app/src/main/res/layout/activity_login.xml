@@ -1,89 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout2"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_height="match_parent">
 
     <!--layout_gravity: view를 감싸는 상위 뷰(Linear Layout)를 기준으로 할때 뷰의 위치-->
     <!--gravity: view 내부의 content의 위치 설정-->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="100dp"
-        android:gravity="center"
-        android:text="LOGIN" />
 
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:background="@color/orange_yellow"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="밥 메이트 시작하기"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:gravity="center"
+        android:text="LOGIN"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <!--사진 넣고싶으면 되도록 src에 집어넣기-->
     <ImageView
         android:id="@+id/profile_image"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="5dp"
         android:background="@null"
-        android:src="@mipmap/ic_launcher"/>
-    <!--사진 넣고싶으면 되도록 src에 집어넣기-->
+        android:src="@mipmap/ic_app_launcher_reverse"
+        android:layout_margin="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/input_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView7" />
+
     <EditText
         android:id="@+id/input_id"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="50dp"/>
-    <EditText
-        android:id="@+id/input_password"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        />
+        android:layout_width="280dp"
+        android:layout_height="83dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/textView10"
+        app:layout_constraintTop_toBottomOf="@id/profile_image" />
 
     <Button
         android:id="@+id/start_log_in"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:fontFamily="@font/theletssmilem"
-        android:text="Log in"/>
-
-    <TextView
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:text="or"
-        android:textSize="20sp" />
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:fontFamily="@font/theletssmilem"
+        android:text="Log in"
+        android:layout_marginTop="20dp"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_id" />
 
     <ImageView
         android:id="@+id/kakao_login"
-        android:layout_width="300dp"
-        android:layout_height="44dp"
-        android:layout_gravity="center"
-        android:src="@drawable/kakao_login_large_wide" />
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:src="@drawable/kakao_login_large_wide"
+        app:layout_constraintTop_toBottomOf="@id/start_log_in"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="132dp"
-        android:layout_gravity="center"
+
+    <!--자식들을 중앙정렬 하고 싶으면 부모에게 속성을 준다.-->
+
+    <TextView
+        android:id="@+id/new_account"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal"
-        android:weightSum="1">
-        <!--자식들을 중앙정렬 하고 싶으면 부모에게 속성을 준다.-->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:gravity="center"
-            android:text="Find Password"
-            android:textSize="24sp" />
+        android:text="Sign Up"
+        android:textColor="#000000"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/kakao_login" />
 
-        <TextView
-            android:id="@+id/new_account"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:gravity="center"
-            android:text="Sign Up"
-            android:textSize="24sp" />
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="ID : "
+        android:layout_marginTop="60dp"
+        android:textAlignment="textEnd"
+        android:textColor="#000000"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toStartOf="@+id/input_id"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_image" />
 
-    </LinearLayout>
-</LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
