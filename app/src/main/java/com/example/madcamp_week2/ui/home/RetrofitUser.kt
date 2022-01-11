@@ -22,6 +22,9 @@ data class deleteFeedResult(val result: String)
 
 data class deleteRoomResult(val result: String)
 
+data class quitRoomResult(val result: String)
+
+
 
 interface RetrofitUser{
 
@@ -78,6 +81,13 @@ interface RetrofitUser{
     fun joinRoom(@Path("post") roomid: String,
                  @Field("userId") userId:String
     ): Call<joinRoomResult>
+
+    //방에서 나가기
+    @FormUrlEncoded
+    @PUT("api/chatroom/out/{id}")
+    fun quitRoom(@Path("id") id: String,
+                 @Field("userId") userId:String
+    ): Call<quitRoomResult>
 
     //계정 삭제
     @DELETE("api/user/{post}")

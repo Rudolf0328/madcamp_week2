@@ -14,10 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.madcamp_week2.R
 import com.example.madcamp_week2.ui.chatroom.data.ChatRoom
-import com.example.madcamp_week2.ui.home.RetrofitUser
-import com.example.madcamp_week2.ui.home.UserInfo
-import com.example.madcamp_week2.ui.home.deleteRoomResult
-import com.example.madcamp_week2.ui.home.joinRoomResult
+import com.example.madcamp_week2.ui.home.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -576,6 +573,24 @@ class FragmentThreeAdapter(private val context:Context, val userEmail: String) :
                             }
                         }
                     }))
+                }else{
+                    val retrofit = Retrofit.Builder().baseUrl("http://192.249.18.77:80").addConverterFactory(
+                        GsonConverterFactory.create()).build()
+                    var server = retrofit.create(RetrofitUser::class.java)
+
+                    //방 참가하기
+                    server.quitRoom(chatRoomList[position]._id, userEmail).enqueue((object: Callback<quitRoomResult> {
+                        override fun onFailure(call: Call<quitRoomResult>, t: Throwable) {
+                        }
+                        override fun onResponse(call: Call<quitRoomResult>, response: Response<quitRoomResult>) {
+                            if(response.body() != null){
+                                Toast.makeText(context, "방에서 나갔습니다", Toast.LENGTH_SHORT).show()
+                                alertDialog.dismiss()
+                            }
+                        }
+                    }))
+
+
                 }
 
 
