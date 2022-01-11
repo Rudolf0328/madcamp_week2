@@ -128,15 +128,9 @@ class FragmentOne : Fragment() {
         // Inflate the layout for this fragment
         Feedlist = ArrayList<Feed>()
         val v = inflater.inflate(R.layout.fragment_one, container, false)
+        val mRecyclerView = v.findViewById<RecyclerView>(R.id.one_rcv_list)
+
         var mAdapter = CustomAdapter(v.context, Feedlist)
-
-
-        (mAdapter as RecyclerView).addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrolled(recyclerView: RecyclerView, dx, dy) {
-                super.onScrolled(recyclerView, dx, dy)
-                refreshFragment()
-            }
-        })
 
         val recycler_view = v.findViewById<RecyclerView>(R.id.one_rcv_list)
         val image = v.findViewById<ImageView>(R.id.one_imgv_profile)
@@ -147,6 +141,13 @@ class FragmentOne : Fragment() {
         val textview_userId = v.findViewById<TextView>(R.id.one_tv_id)
         val feed_add = v.findViewById<ImageButton>(R.id.feed_post)
         val one_tv_post_num = v.findViewById<TextView>(R.id.one_tv_post_num)
+        val refreshbutton = v.findViewById<ImageButton>(R.id.one_btn_menu)
+
+        refreshbutton.setOnClickListener {
+            refreshFragment()
+        }
+
+
 
         id = requireActivity().intent.getStringExtra("userEmail")!!
         nickName = requireActivity().intent.getStringExtra("userName")!!
