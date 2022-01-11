@@ -12,7 +12,7 @@ data class deleteUserResult(val result: String)
 
 data class feedPostResult(val result: String)
 
-data class UserInfo(val nickName: String, val profile: String, val feeds: ArrayList<String>)
+data class UserInfo(val nickName: String, val profile: String, val feeds: ArrayList<String>, val chatrooms: ArrayList<String>)
 
 data class getEveryFeedResult(val feeds:ArrayList<Feed>)
 
@@ -23,6 +23,8 @@ data class deleteFeedResult(val result: String)
 data class deleteRoomResult(val result: String)
 
 data class quitRoomResult(val result: String)
+
+data class editFeedResult(val result: String)
 
 
 
@@ -63,6 +65,16 @@ interface RetrofitUser{
     @GET("api/feed")
     fun getEveryFeed(): Call<getEveryFeedResult>
 
+    //피드 수정
+    @FormUrlEncoded
+    @PUT("api/feed/{post}")
+    fun editFeed(@Path("post") feedId: String,
+                 @Field("time") time: String,
+                 @Field("image") image: String,
+                 @Field("content") content: String
+    ): Call<editFeedResult>
+
+
     //피드 삭제
     @DELETE("api/feed/{feedid}/{userid}")
     fun deleteFeed(@Path("feedid") feedid:String,
@@ -93,7 +105,7 @@ interface RetrofitUser{
     @DELETE("api/user/{post}")
     fun deleteUser(@Path("post")post: String): Call<deleteUserResult>
 
-    //계정 삭제
+    //방 삭제
     @DELETE("api/chatroom/{roomid}")
     fun deleteRoom(@Path("roomid")roomid: String): Call<deleteRoomResult>
 

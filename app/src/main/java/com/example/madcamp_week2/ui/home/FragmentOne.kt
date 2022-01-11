@@ -230,7 +230,7 @@ class FragmentOne : Fragment() {
 
 
 
-            //계정 삭제 전 피드 삭제
+            //계정 삭제 전 피드랑 방 삭제
             server.getUser(id).enqueue((object: Callback<UserInfo> {
                 override fun onFailure(call: Call<UserInfo>, t: Throwable) {
 
@@ -241,6 +241,7 @@ class FragmentOne : Fragment() {
                     }else{
 
                         val FeedIdList = response.body()!!.feeds
+                        val roomIdList = response.body()!!.chatrooms
 
                         for(i: Int in 0..response.body()!!.feeds.size-1){
                             val retrofit = Retrofit.Builder().baseUrl("http://192.249.18.77:80").addConverterFactory(
@@ -260,7 +261,25 @@ class FragmentOne : Fragment() {
                                     }
                                 }
                             }))
+                        }
 
+                        for(i: Int in 0..roomIdList.size-1){
+                            val retrofit = Retrofit.Builder().baseUrl("http://192.249.18.77:80").addConverterFactory(
+                                GsonConverterFactory.create()).build()
+                            var server = retrofit.create(RetrofitUser::class.java)
+
+
+                            //유저의 피드 리스트 돌며 삭제하기
+                            server.quitRoom(roomIdList[i], id).enqueue((object: Callback<quitRoomResult> {
+                                override fun onFailure(call: Call<quitRoomResult>, t: Throwable) {
+                                    Log.e("feed response1", response.body().toString())
+                                }
+                                override fun onResponse(call: Call<quitRoomResult>, response: Response<quitRoomResult>) {
+                                    if(response.body() == null){
+                                    }else{
+                                    }
+                                }
+                            }))
                         }
 
                     }
