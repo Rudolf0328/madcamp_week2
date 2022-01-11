@@ -48,7 +48,7 @@
         app:layout_constraintStart_toEndOf="@id/room_imgv_img"
         app:layout_constraintTop_toBottomOf="@+id/room_imgv_img"
         app:srcCompat="@drawable/ic_question"
-        android:visibility="invisible"
+        android:visibility="visible"
         />
 
     <ImageView
@@ -62,7 +62,7 @@
         app:layout_constraintStart_toEndOf="@id/room_tv_one"
         app:layout_constraintTop_toBottomOf="@+id/room_imgv_img"
         app:srcCompat="@drawable/ic_question"
-        android:visibility="invisible"
+        android:visibility="gone"
         />
 
     <ImageView
@@ -76,7 +76,7 @@
         app:layout_constraintStart_toEndOf="@id/room_tv_two"
         app:layout_constraintTop_toBottomOf="@+id/room_imgv_img"
         app:srcCompat="@drawable/ic_question"
-        android:visibility="invisible"
+        android:visibility="gone"
         />
 
     <ImageView
@@ -90,7 +90,7 @@
         app:layout_constraintStart_toEndOf="@id/room_tv_three"
         app:layout_constraintTop_toBottomOf="@+id/room_imgv_img"
         app:srcCompat="@drawable/ic_question"
-        android:visibility="invisible"
+        android:visibility="gone"
         />
 
     <ImageView
@@ -104,7 +104,7 @@
         app:layout_constraintStart_toEndOf="@id/room_tv_four"
         app:layout_constraintTop_toBottomOf="@+id/room_imgv_img"
         app:srcCompat="@drawable/ic_question"
-        android:visibility="invisible"
+        android:visibility="gone"
         />
 
     <ImageView
@@ -118,7 +118,7 @@
         app:layout_constraintStart_toEndOf="@id/room_tv_five"
         app:layout_constraintTop_toBottomOf="@+id/room_imgv_img"
         app:srcCompat="@drawable/ic_question"
-        android:visibility="invisible"
+        android:visibility="gone"
         />
 
     <ImageView
@@ -132,7 +132,7 @@
         app:layout_constraintStart_toEndOf="@id/room_tv_six"
         app:layout_constraintTop_toBottomOf="@+id/room_imgv_img"
         app:srcCompat="@drawable/ic_question"
-        android:visibility="invisible"
+        android:visibility="gone"
         />
 
     <ImageView
@@ -146,7 +146,7 @@
         app:layout_constraintStart_toEndOf="@id/room_tv_seven"
         app:layout_constraintTop_toBottomOf="@+id/room_imgv_img"
         app:srcCompat="@drawable/ic_question"
-        android:visibility="invisible"
+        android:visibility="gone"
         />
 
     <TextView
@@ -154,9 +154,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="70dp"
+        android:layout_marginTop="5dp"
         android:text="17 : 00"
         android:textColor="#000000"
-        android:textSize="20sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

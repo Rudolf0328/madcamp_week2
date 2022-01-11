@@ -18,6 +18,12 @@ data class getEveryFeedResult(val feeds:ArrayList<Feed>)
 
 data class joinRoomResult(val result: String)
 
+data class deleteFeedResult(val result: String)
+
+data class deleteRoomResult(val result: String)
+
+data class quitRoomResult(val result: String)
+
 
 
 interface RetrofitUser{
@@ -58,8 +64,15 @@ interface RetrofitUser{
     fun getEveryFeed(): Call<getEveryFeedResult>
 
     //피드 삭제
-    @DELETE("api/feed/{post}")
-    fun deleteFeed(): Call<getEveryFeedResult>
+    @DELETE("api/feed/{feedid}/{userid}")
+    fun deleteFeed(@Path("feedid") feedid:String,
+                   @Path("userid") userid:String
+    ): Call<deleteFeedResult>
+
+    //피드 아이디만 가지고 삭제 for debug
+    @DELETE("api/feed/{feedid}")
+    fun deleteFeedSuper(@Path("feedid") feedid:String
+    ): Call<deleteFeedResult>
 
 
    //방에 참가
@@ -69,7 +82,19 @@ interface RetrofitUser{
                  @Field("userId") userId:String
     ): Call<joinRoomResult>
 
+    //방에서 나가기
+    @FormUrlEncoded
+    @PUT("api/chatroom/out/{id}")
+    fun quitRoom(@Path("id") id: String,
+                 @Field("userId") userId:String
+    ): Call<quitRoomResult>
+
+    //계정 삭제
     @DELETE("api/user/{post}")
     fun deleteUser(@Path("post")post: String): Call<deleteUserResult>
+
+    //계정 삭제
+    @DELETE("api/chatroom/{roomid}")
+    fun deleteRoom(@Path("roomid")roomid: String): Call<deleteRoomResult>
 
 }

@@ -14,9 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.madcamp_week2.R
 import com.example.madcamp_week2.ui.chatroom.data.ChatRoom
-import com.example.madcamp_week2.ui.home.RetrofitUser
-import com.example.madcamp_week2.ui.home.UserInfo
-import com.example.madcamp_week2.ui.home.joinRoomResult
+import com.example.madcamp_week2.ui.home.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -63,6 +61,8 @@ class FragmentThreeAdapter(private val context:Context, val userEmail: String) :
             val count: String = chatRoom.people.size.toString() + "/" + chatRoom.maxUser
             tvCount.text = count
             tvTime.text = chatRoom.time
+
+            val usernum = chatRoom.people.size
 
 
             if(chatRoom.maxUser.toInt() >= 1) {
@@ -163,9 +163,352 @@ class FragmentThreeAdapter(private val context:Context, val userEmail: String) :
 
             }
 
-            room_tv_one.setOnClickListener {
-                Log.e("touch", "profile")
+            if(usernum >= 1) {
+                room_tv_one.setOnClickListener {
+                    val retrofit =
+                        Retrofit.Builder().baseUrl("http://192.249.18.77:80").addConverterFactory(
+                            GsonConverterFactory.create()
+                        ).build()
+                    var server = retrofit.create(RetrofitUser::class.java)
+                    server.getUser(chatRoom.people[0]).enqueue((object : Callback<UserInfo> {
+                        override fun onFailure(call: Call<UserInfo>, t: Throwable) {
+
+                        }
+
+                        override fun onResponse(
+                            call: Call<UserInfo>,
+                            response: Response<UserInfo>
+                        ) {
+                            if (response.body() == null) {
+                                Log.e("get user", response.body().toString())
+                            } else {
+                                val profile =
+                                    LayoutInflater.from(context).inflate(R.layout.name_tag, null)
+                                val alertDialog = AlertDialog.Builder(context)
+                                    .setView(profile)
+                                    .create()
+
+                                val name = profile.findViewById<TextView>(R.id.one_tv_id)
+                                val postnum = profile.findViewById<TextView>(R.id.one_tv_post_num)
+                                val userThumbnail =
+                                    profile.findViewById<ImageView>(R.id.one_imgv_profile)
+
+                                name.text = response.body()!!.nickName
+                                postnum.text = response.body()!!.feeds.size.toString()
+                                Glide.with(userThumbnail).load(response.body()!!.profile)
+                                    .centerCrop().into(userThumbnail)
+
+                                alertDialog.show()
+
+
+                            }
+                        }
+                    }))
+                }
             }
+            if(usernum >= 2) {
+                room_tv_two.setOnClickListener {
+                    val retrofit =
+                        Retrofit.Builder().baseUrl("http://192.249.18.77:80").addConverterFactory(
+                            GsonConverterFactory.create()
+                        ).build()
+                    var server = retrofit.create(RetrofitUser::class.java)
+                    server.getUser(chatRoom.people[1]).enqueue((object : Callback<UserInfo> {
+                        override fun onFailure(call: Call<UserInfo>, t: Throwable) {
+
+                        }
+
+                        override fun onResponse(
+                            call: Call<UserInfo>,
+                            response: Response<UserInfo>
+                        ) {
+                            if (response.body() == null) {
+                                Log.e("get user", response.body().toString())
+                            } else {
+                                val profile =
+                                    LayoutInflater.from(context).inflate(R.layout.name_tag, null)
+                                val alertDialog = AlertDialog.Builder(context)
+                                    .setView(profile)
+                                    .create()
+
+                                val name = profile.findViewById<TextView>(R.id.one_tv_id)
+                                val postnum = profile.findViewById<TextView>(R.id.one_tv_post_num)
+                                val userThumbnail =
+                                    profile.findViewById<ImageView>(R.id.one_imgv_profile)
+
+                                name.text = response.body()!!.nickName
+                                postnum.text = response.body()!!.feeds.size.toString()
+                                Glide.with(userThumbnail).load(response.body()!!.profile)
+                                    .centerCrop().into(userThumbnail)
+
+                                alertDialog.show()
+
+
+                            }
+                        }
+                    }))
+                }
+            }
+            if(usernum >= 3) {
+                room_tv_three.setOnClickListener {
+                    val retrofit =
+                        Retrofit.Builder().baseUrl("http://192.249.18.77:80").addConverterFactory(
+                            GsonConverterFactory.create()
+                        ).build()
+                    var server = retrofit.create(RetrofitUser::class.java)
+                    server.getUser(chatRoom.people[2]).enqueue((object : Callback<UserInfo> {
+                        override fun onFailure(call: Call<UserInfo>, t: Throwable) {
+
+                        }
+
+                        override fun onResponse(
+                            call: Call<UserInfo>,
+                            response: Response<UserInfo>
+                        ) {
+                            if (response.body() == null) {
+                                Log.e("get user", response.body().toString())
+                            } else {
+                                val profile =
+                                    LayoutInflater.from(context).inflate(R.layout.name_tag, null)
+                                val alertDialog = AlertDialog.Builder(context)
+                                    .setView(profile)
+                                    .create()
+
+                                val name = profile.findViewById<TextView>(R.id.one_tv_id)
+                                val postnum = profile.findViewById<TextView>(R.id.one_tv_post_num)
+                                val userThumbnail =
+                                    profile.findViewById<ImageView>(R.id.one_imgv_profile)
+
+                                name.text = response.body()!!.nickName
+                                postnum.text = response.body()!!.feeds.size.toString()
+                                Glide.with(userThumbnail).load(response.body()!!.profile)
+                                    .centerCrop().into(userThumbnail)
+
+                                alertDialog.show()
+
+
+                            }
+                        }
+                    }))
+                }
+            }
+            if(usernum >= 4) {
+                room_tv_four.setOnClickListener {
+                    val retrofit =
+                        Retrofit.Builder().baseUrl("http://192.249.18.77:80").addConverterFactory(
+                            GsonConverterFactory.create()
+                        ).build()
+                    var server = retrofit.create(RetrofitUser::class.java)
+                    server.getUser(chatRoom.people[3]).enqueue((object : Callback<UserInfo> {
+                        override fun onFailure(call: Call<UserInfo>, t: Throwable) {
+
+                        }
+
+                        override fun onResponse(
+                            call: Call<UserInfo>,
+                            response: Response<UserInfo>
+                        ) {
+                            if (response.body() == null) {
+                                Log.e("get user", response.body().toString())
+                            } else {
+                                val profile =
+                                    LayoutInflater.from(context).inflate(R.layout.name_tag, null)
+                                val alertDialog = AlertDialog.Builder(context)
+                                    .setView(profile)
+                                    .create()
+
+                                val name = profile.findViewById<TextView>(R.id.one_tv_id)
+                                val postnum = profile.findViewById<TextView>(R.id.one_tv_post_num)
+                                val userThumbnail =
+                                    profile.findViewById<ImageView>(R.id.one_imgv_profile)
+
+                                name.text = response.body()!!.nickName
+                                postnum.text = response.body()!!.feeds.size.toString()
+                                Glide.with(userThumbnail).load(response.body()!!.profile)
+                                    .centerCrop().into(userThumbnail)
+
+                                alertDialog.show()
+
+
+                            }
+                        }
+                    }))
+                }
+            }
+            if(usernum >= 5) {
+                room_tv_five.setOnClickListener {
+                    val retrofit =
+                        Retrofit.Builder().baseUrl("http://192.249.18.77:80").addConverterFactory(
+                            GsonConverterFactory.create()
+                        ).build()
+                    var server = retrofit.create(RetrofitUser::class.java)
+                    server.getUser(chatRoom.people[4]).enqueue((object : Callback<UserInfo> {
+                        override fun onFailure(call: Call<UserInfo>, t: Throwable) {
+
+                        }
+
+                        override fun onResponse(
+                            call: Call<UserInfo>,
+                            response: Response<UserInfo>
+                        ) {
+                            if (response.body() == null) {
+                                Log.e("get user", response.body().toString())
+                            } else {
+                                val profile =
+                                    LayoutInflater.from(context).inflate(R.layout.name_tag, null)
+                                val alertDialog = AlertDialog.Builder(context)
+                                    .setView(profile)
+                                    .create()
+
+                                val name = profile.findViewById<TextView>(R.id.one_tv_id)
+                                val postnum = profile.findViewById<TextView>(R.id.one_tv_post_num)
+                                val userThumbnail =
+                                    profile.findViewById<ImageView>(R.id.one_imgv_profile)
+
+                                name.text = response.body()!!.nickName
+                                postnum.text = response.body()!!.feeds.size.toString()
+                                Glide.with(userThumbnail).load(response.body()!!.profile)
+                                    .centerCrop().into(userThumbnail)
+
+                                alertDialog.show()
+
+
+                            }
+                        }
+                    }))
+                }
+            }
+            if(usernum >= 6) {
+                room_tv_six.setOnClickListener {
+                    val retrofit =
+                        Retrofit.Builder().baseUrl("http://192.249.18.77:80").addConverterFactory(
+                            GsonConverterFactory.create()
+                        ).build()
+                    var server = retrofit.create(RetrofitUser::class.java)
+                    server.getUser(chatRoom.people[5]).enqueue((object : Callback<UserInfo> {
+                        override fun onFailure(call: Call<UserInfo>, t: Throwable) {
+
+                        }
+
+                        override fun onResponse(
+                            call: Call<UserInfo>,
+                            response: Response<UserInfo>
+                        ) {
+                            if (response.body() == null) {
+                                Log.e("get user", response.body().toString())
+                            } else {
+                                val profile =
+                                    LayoutInflater.from(context).inflate(R.layout.name_tag, null)
+                                val alertDialog = AlertDialog.Builder(context)
+                                    .setView(profile)
+                                    .create()
+
+                                val name = profile.findViewById<TextView>(R.id.one_tv_id)
+                                val postnum = profile.findViewById<TextView>(R.id.one_tv_post_num)
+                                val userThumbnail =
+                                    profile.findViewById<ImageView>(R.id.one_imgv_profile)
+
+                                name.text = response.body()!!.nickName
+                                postnum.text = response.body()!!.feeds.size.toString()
+                                Glide.with(userThumbnail).load(response.body()!!.profile)
+                                    .centerCrop().into(userThumbnail)
+
+                                alertDialog.show()
+
+
+                            }
+                        }
+                    }))
+                }
+            }
+            if(usernum >= 7) {
+                room_tv_seven.setOnClickListener {
+                    val retrofit =
+                        Retrofit.Builder().baseUrl("http://192.249.18.77:80").addConverterFactory(
+                            GsonConverterFactory.create()
+                        ).build()
+                    var server = retrofit.create(RetrofitUser::class.java)
+                    server.getUser(chatRoom.people[6]).enqueue((object : Callback<UserInfo> {
+                        override fun onFailure(call: Call<UserInfo>, t: Throwable) {
+
+                        }
+
+                        override fun onResponse(
+                            call: Call<UserInfo>,
+                            response: Response<UserInfo>
+                        ) {
+                            if (response.body() == null) {
+                                Log.e("get user", response.body().toString())
+                            } else {
+                                val profile =
+                                    LayoutInflater.from(context).inflate(R.layout.name_tag, null)
+                                val alertDialog = AlertDialog.Builder(context)
+                                    .setView(profile)
+                                    .create()
+
+                                val name = profile.findViewById<TextView>(R.id.one_tv_id)
+                                val postnum = profile.findViewById<TextView>(R.id.one_tv_post_num)
+                                val userThumbnail =
+                                    profile.findViewById<ImageView>(R.id.one_imgv_profile)
+
+                                name.text = response.body()!!.nickName
+                                postnum.text = response.body()!!.feeds.size.toString()
+                                Glide.with(userThumbnail).load(response.body()!!.profile)
+                                    .centerCrop().into(userThumbnail)
+
+                                alertDialog.show()
+
+
+                            }
+                        }
+                    }))
+                }
+            }
+            if(usernum >= 8) {
+                room_tv_one.setOnClickListener {
+                    val retrofit =
+                        Retrofit.Builder().baseUrl("http://192.249.18.77:80").addConverterFactory(
+                            GsonConverterFactory.create()
+                        ).build()
+                    var server = retrofit.create(RetrofitUser::class.java)
+                    server.getUser(chatRoom.people[7]).enqueue((object : Callback<UserInfo> {
+                        override fun onFailure(call: Call<UserInfo>, t: Throwable) {
+
+                        }
+
+                        override fun onResponse(
+                            call: Call<UserInfo>,
+                            response: Response<UserInfo>
+                        ) {
+                            if (response.body() == null) {
+                                Log.e("get user", response.body().toString())
+                            } else {
+                                val profile =
+                                    LayoutInflater.from(context).inflate(R.layout.name_tag, null)
+                                val alertDialog = AlertDialog.Builder(context)
+                                    .setView(profile)
+                                    .create()
+
+                                val name = profile.findViewById<TextView>(R.id.one_tv_id)
+                                val postnum = profile.findViewById<TextView>(R.id.one_tv_post_num)
+                                val userThumbnail =
+                                    profile.findViewById<ImageView>(R.id.one_imgv_profile)
+
+                                name.text = response.body()!!.nickName
+                                postnum.text = response.body()!!.feeds.size.toString()
+                                Glide.with(userThumbnail).load(response.body()!!.profile)
+                                    .centerCrop().into(userThumbnail)
+
+                                alertDialog.show()
+
+
+                            }
+                        }
+                    }))
+                }
+            }
+
+
         }
     }
 
@@ -179,6 +522,12 @@ class FragmentThreeAdapter(private val context:Context, val userEmail: String) :
                 .create()
 
             val button = FeedPost.findViewById<Button>(R.id.room_join)
+            val button_out = FeedPost.findViewById<Button>(R.id.room_out)
+            if(chatRoomList[position].owner == userEmail){
+                button_out.text = "방 터트리기"
+            }
+
+
             button.setOnClickListener {
                 if (userEmail in chatRoomList[position].people){
                     Toast.makeText(context, "이미 방에 참가하였습니다.", Toast.LENGTH_SHORT).show()
@@ -191,16 +540,61 @@ class FragmentThreeAdapter(private val context:Context, val userEmail: String) :
                     //방 참가하기
                     server.joinRoom(chatRoomList[position]._id ,userEmail).enqueue((object: Callback<joinRoomResult> {
                         override fun onFailure(call: Call<joinRoomResult>, t: Throwable) {
+                            Log.e("frag3", "fail")
+                            t.printStackTrace()
                         }
                         override fun onResponse(call: Call<joinRoomResult>, response: Response<joinRoomResult>) {
                             if(response.body() != null){
                                 Toast.makeText(context, "방에 참가하였습니다.", Toast.LENGTH_SHORT).show()
+                                alertDialog.dismiss()
                             }
                         }
                     }))
 
 
                 }
+
+            }
+
+            button_out.setOnClickListener {
+                if(chatRoomList[position].owner == userEmail){
+                    val retrofit = Retrofit.Builder().baseUrl("http://192.249.18.77:80").addConverterFactory(
+                        GsonConverterFactory.create()).build()
+                    var server = retrofit.create(RetrofitUser::class.java)
+
+                    //방 참가하기
+                    server.deleteRoom(chatRoomList[position]._id).enqueue((object: Callback<deleteRoomResult> {
+                        override fun onFailure(call: Call<deleteRoomResult>, t: Throwable) {
+                        }
+                        override fun onResponse(call: Call<deleteRoomResult>, response: Response<deleteRoomResult>) {
+                            if(response.body() != null){
+                                Toast.makeText(context, "방 터트렸습니다.", Toast.LENGTH_SHORT).show()
+                                alertDialog.dismiss()
+                            }
+                        }
+                    }))
+                }else{
+                    val retrofit = Retrofit.Builder().baseUrl("http://192.249.18.77:80").addConverterFactory(
+                        GsonConverterFactory.create()).build()
+                    var server = retrofit.create(RetrofitUser::class.java)
+
+                    //방 참가하기
+                    server.quitRoom(chatRoomList[position]._id, userEmail).enqueue((object: Callback<quitRoomResult> {
+                        override fun onFailure(call: Call<quitRoomResult>, t: Throwable) {
+                        }
+                        override fun onResponse(call: Call<quitRoomResult>, response: Response<quitRoomResult>) {
+                            if(response.body() != null){
+                                Toast.makeText(context, "방에서 나갔습니다", Toast.LENGTH_SHORT).show()
+                                alertDialog.dismiss()
+                            }
+                        }
+                    }))
+
+
+                }
+
+
+
 
             }
 

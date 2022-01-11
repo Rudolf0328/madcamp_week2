@@ -17,10 +17,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.madcamp_week2.ImgurResponse
-import com.example.madcamp_week2.MainActivity
-import com.example.madcamp_week2.R
-import com.example.madcamp_week2.Retrofit_imgur
+import com.example.madcamp_week2.*
 import com.kakao.sdk.user.UserApiClient
 import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
@@ -187,7 +184,7 @@ class FragmentOne : Fragment() {
                                     Log.e("feed response2", response.body().toString())
                                 }else{
 
-                                    mAdapter.addItem(response.body()!!)
+                                    mAdapter.addItem(response.body()!!, id, FeedIdList[i])
 
 
                                 }
@@ -220,6 +217,9 @@ class FragmentOne : Fragment() {
                     startActivity(nextIntent)
                 }
             }
+            Log.e("try?", Feedlist.toString())
+            val nextIntent = Intent(requireContext(), MainActivity::class.java)
+            startActivity(nextIntent)
         }
 
         //로그아웃, 길게 누를 시 계정 삭제
@@ -228,7 +228,51 @@ class FragmentOne : Fragment() {
                 GsonConverterFactory.create()).build()
             var server = retrofit.create(RetrofitUser::class.java)
 
-            //유저 정보 불러오기
+
+
+            //계정 삭제 전 피드 삭제
+            server.getUser(id).enqueue((object: Callback<UserInfo> {
+                override fun onFailure(call: Call<UserInfo>, t: Throwable) {
+
+                }
+                override fun onResponse(call: Call<UserInfo>, response: Response<UserInfo>) {
+                    if(response.body() == null){
+                        Log.e("get user", response.body().toString())
+                    }else{
+
+                        val FeedIdList = response.body()!!.feeds
+
+                        for(i: Int in 0..response.body()!!.feeds.size-1){
+                            val retrofit = Retrofit.Builder().baseUrl("http://192.249.18.77:80").addConverterFactory(
+                                GsonConverterFactory.create()).build()
+                            var server = retrofit.create(RetrofitUser::class.java)
+
+                            Log.e("why?", FeedIdList[i])
+
+                            //유저의 피드 리스트 돌며 삭제하기
+                            server.deleteFeedSuper(FeedIdList[i]).enqueue((object: Callback<deleteFeedResult> {
+                                override fun onFailure(call: Call<deleteFeedResult>, t: Throwable) {
+                                    Log.e("feed response1", response.body().toString())
+                                }
+                                override fun onResponse(call: Call<deleteFeedResult>, response: Response<deleteFeedResult>) {
+                                    if(response.body() == null){
+                                    }else{
+                                    }
+                                }
+                            }))
+
+                        }
+
+                    }
+                }
+            }))
+
+
+
+
+
+
+            //유저 삭제
             server.deleteUser(id).enqueue((object: Callback<deleteUserResult> {
                 override fun onFailure(call: Call<deleteUserResult>, t: Throwable) {
                     Toast.makeText(requireContext(), "계정삭제에 실패했습니다", Toast.LENGTH_SHORT).show()
@@ -307,9 +351,6 @@ class FragmentOne : Fragment() {
                             Log.e("post", content_post)
 
 
-
-
-
                             val retrofit = Retrofit.Builder().baseUrl("http://192.249.18.77:80").addConverterFactory(
                                 GsonConverterFactory.create()).build()
                             var server = retrofit.create(RetrofitUser::class.java)
@@ -325,6 +366,7 @@ class FragmentOne : Fragment() {
                                     if (response?.body() != null ) {
                                         Toast.makeText(requireContext(), "피드를 올렸습니다", Toast.LENGTH_SHORT).show()
                                         alertDialog.dismiss()
+
                                     }else{
                                         Toast.makeText(requireContext(), "피드를 올리지 못했습니다", Toast.LENGTH_SHORT).show()
                                     }
