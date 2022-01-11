@@ -70,18 +70,19 @@ class MainActivity2 : AppCompatActivity() {
             .commit()
     }
 
-//    fun changeFragmentFour(){
-//        supportFragmentManager
-//            .beginTransaction()
-//            .replace(R.id.fl_container, fragmentFour)
-//            .commit()
-//    }
+    fun changeFragmentOne(){
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fl_container, fragmentOne)
+            .commit()
+    }
+
 //
-//    fun changeFragmentThree(){
-//        supportFragmentManager
-//            .beginTransaction()
-//            .replace(R.id.fl_container, fragmentThree)
-//            .commit()
-//    }
+    fun changeFragmentThree(){
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fl_container, fragmentThree)
+            .commit()
+    }
 
 }
