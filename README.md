@@ -3,6 +3,7 @@
 * 박정웅 | https://github.com/yeolia327
 * 이지원 | https://github.com/Rudolf0328
 * [서버](https://github.com/Rudolf0328/madcamp_week2_server)
+* [다운로드](https://github.com/Rudolf0328/madcamp_week2/blob/master/app/release/app-release.apk) 에서 Download 클릭!
 
 ## 개요
 ```
