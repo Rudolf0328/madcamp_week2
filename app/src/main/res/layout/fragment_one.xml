@@ -46,7 +46,7 @@
         android:background="#00FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_more_vert_24" />
+        app:srcCompat="@drawable/ic_baseline_forward_5_24" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"

@@ -9,10 +9,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.GridView
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
@@ -45,6 +42,15 @@ class FragmentTwo : Fragment() {
 
     }
 
+    fun refreshFragment() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            requireFragmentManager().beginTransaction().detach(this).commitNow();
+            requireFragmentManager().beginTransaction().attach(this).commitNow();
+        } else {
+            requireFragmentManager().beginTransaction().detach(this).attach(this).commit();
+        }
+    }
+
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
@@ -60,6 +66,11 @@ class FragmentTwo : Fragment() {
         val gridview = v.findViewById<GridView>(R.id.gridView)
         gridview.adapter = mAdapter
 
+        val refresh = v.findViewById<ImageButton>(R.id.imageButton)
+
+        refresh.setOnClickListener {
+            refreshFragment()
+        }
 
 
         val today = LocalDate.now()
