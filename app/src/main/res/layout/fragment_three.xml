@@ -35,6 +35,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
+    <ImageButton
+        android:id="@+id/chat_room_refresh"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="#00FFFFFF"
+        android:layout_marginRight="0dp"
+        android:src="@drawable/ic_baseline_forward_5_24"
+        app:layout_constraintEnd_toStartOf="@+id/chat_room_add"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/chat_rcv_list2"
         android:layout_width="0dp"
