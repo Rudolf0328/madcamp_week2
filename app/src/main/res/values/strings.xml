@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">밥 메이트</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_home">피드</string>
+    <string name="title_dashboard">릴스</string>
     <string name="title_chatroom">채팅</string>
     <string name="title_setting">설정</string>
     <!-- TODO: Remove or change this placeholder text -->

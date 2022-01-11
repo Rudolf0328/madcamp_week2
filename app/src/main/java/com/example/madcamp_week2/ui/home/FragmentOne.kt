@@ -413,8 +413,8 @@ class FragmentOne : Fragment() {
             val one_tv_name_PopUp = userProfilePopUp.findViewById<TextView>(R.id.one_tv_name)
             val one_tv_id_PopUp = userProfilePopUp.findViewById<TextView>(R.id.one_tv_id)
             val one_tv_post_num_PopUp = userProfilePopUp.findViewById<TextView>(R.id.one_tv_post_num)
-            val userProfile_edit_photo = userProfilePopUp.findViewById<TextView>(R.id.userProfile_edit_photo)
-            val userProfile_edit_send = userProfilePopUp.findViewById<TextView>(R.id.userProfile_edit_send)
+//            val userProfile_edit_photo = userProfilePopUp.findViewById<TextView>(R.id.userProfile_edit_photo)
+//            val userProfile_edit_send = userProfilePopUp.findViewById<TextView>(R.id.userProfile_edit_send)
 
             if(userThumnail != "null"){
                 Glide.with(one_imgv_profile_PopUp).load(userThumnail).circleCrop().into(one_imgv_profile_PopUp)
@@ -434,12 +434,12 @@ class FragmentOne : Fragment() {
 
 
             alertDialog.show()
-
-            userProfile_edit_photo.setOnClickListener{
-                gallery()
-                uri
-
-            }
+//
+//            userProfile_edit_photo.setOnClickListener{
+//                gallery()
+//                uri
+//
+//            }
 
         }
 

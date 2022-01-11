@@ -28,6 +28,7 @@
         app:layout_constraintTop_toTopOf="@+id/userImg_feedpost"
         android:backgroundTint="@color/white"
         android:text="사진 불러오기"
+        android:fontFamily="@font/theletssmilem"
         android:textColor="@color/black"
         android:visibility="visible"
         />
@@ -70,14 +71,15 @@
         android:layout_marginStart="80dp"
         android:layout_marginTop="304dp"
         android:layout_marginEnd="80dp"
-        android:text="터치해서 수정"
+        android:paddingBottom="10dp"
         android:textColor="#000000"
         android:textSize="18sp"
+        android:hint="터치해서 수정"
+        android:fontFamily="@font/theletssmilem"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.500"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:paddingBottom="10dp"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/sent_FeedPost"
@@ -86,6 +88,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="40dp"
         android:text="보내기"
+        android:fontFamily="@font/theletssmilem"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/content_feedpost" />
 

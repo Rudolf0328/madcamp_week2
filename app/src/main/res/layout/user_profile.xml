@@ -75,26 +75,6 @@
                 app:layout_constraintStart_toEndOf="@+id/one_imgv_profile"
                 app:layout_constraintTop_toBottomOf="@+id/one_tv_name" />
 
-            <Button
-                android:id="@+id/userProfile_edit_photo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="100dp"
-                android:layout_marginBottom="4dp"
-                android:text="사진"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <Button
-                android:id="@+id/userProfile_edit_send"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="72dp"
-                android:layout_marginBottom="7dp"
-                android:text="보내기"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

@@ -56,15 +56,13 @@
         <entry key="..\:/madcamp2/madcamp_week2/app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="..\:/madcamp2/madcamp_week2/app/src/main/res/layout/fragment_notifications.xml" value="0.17255434782608695" />
         <entry key="..\:/madcamp2/madcamp_week2/app/src/main/res/layout/fragment_one.xml" value="0.25" />
-        <entry key="..\:/madcamp2/madcamp_week2/app/src/main/res/layout/fragment_three.xml" value="0.22418478260869565" />
         <entry key="..\:/madcamp2/madcamp_week2/app/src/main/res/layout/fragment_two.xml" value="0.16621376811594202" />
-        <entry key="..\:/madcamp2/madcamp_week2/app/src/main/res/layout/name_tag.xml" value="0.2667572463768116" />
-        <entry key="..\:/madcamp2/madcamp_week2/app/src/main/res/layout/room_join.xml" value="0.24114583333333334" />
         <entry key="..\:/madcamp2/madcamp_week2/app/src/main/res/layout/view_item_layout.xml" value="0.25" />
         <entry key="..\:/madcamp2/madcamp_week2/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2046875" />
         <entry key="..\:/madcamp2/madcamp_week2/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.22083333333333333" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.165625" />
         <entry key="app/src/main/res/drawable/background_round.xml" value="0.228125" />
+        <entry key="app/src/main/res/drawable/background_round_empty.xml" value="0.30052083333333335" />
         <entry key="app/src/main/res/drawable/crown_round_background.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/frag1_facephoto.xml" value="0.18802083333333333" />
         <entry key="app/src/main/res/drawable/ic_app_launcher_reverse_background.xml" value="0.22864583333333333" />
@@ -92,7 +90,7 @@
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.2336490220689028" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.21197916666666666" />
         <entry key="app/src/main/res/layout/activity_main2.xml" value="0.21197916666666666" />
-        <entry key="app/src/main/res/layout/activity_main_registration.xml" value="0.171875" />
+        <entry key="app/src/main/res/layout/activity_main_registration.xml" value="0.46186390397477933" />
         <entry key="app/src/main/res/layout/chat_center_item.xml" value="0.21197916666666666" />
         <entry key="app/src/main/res/layout/chat_left_item.xml" value="0.5644096724946723" />
         <entry key="app/src/main/res/layout/chat_right_item.xml" value="0.21197916666666666" />
@@ -112,9 +110,11 @@
         <entry key="app/src/main/res/layout/loading_one.xml" value="0.19955230409052047" />
         <entry key="app/src/main/res/layout/loading_three.xml" value="0.17980072463768115" />
         <entry key="app/src/main/res/layout/loading_two.xml" value="0.17980072463768115" />
-        <entry key="app/src/main/res/layout/room_join.xml" value="0.7581931357948377" />
+        <entry key="app/src/main/res/layout/name_tag.xml" value="0.27445652173913043" />
+        <entry key="app/src/main/res/layout/room_join.xml" value="0.30352130633769564" />
         <entry key="app/src/main/res/layout/user_profile.xml" value="0.284375" />
         <entry key="app/src/main/res/layout/view_item_layout.xml" value="0.14947916666666666" />
+        <entry key="app/src/main/res/layout/view_item_layout_feed_post.xml" value="0.18802083333333333" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.21197916666666666" />
       </map>
     </option>
