@@ -12,7 +12,8 @@
         android:layout_height="30dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="48dp"
-        android:src="@drawable/ic_baseline_add_24"
+        android:background="#00FFFFFF"
+        android:src="@drawable/ic_baseline_edit_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,6 +23,7 @@
         android:layout_height="30dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="12dp"
+        android:background="#00FFFFFF"
         android:src="@drawable/ic_baseline_close_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

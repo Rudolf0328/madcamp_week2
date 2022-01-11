@@ -7,4 +7,5 @@
     <string name="title_setting">설정</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menuImage">원하는 메뉴의 사진을 골라주세요</string>
 </resources>

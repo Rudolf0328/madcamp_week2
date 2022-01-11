@@ -143,7 +143,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="8dp"
-        android:text="채팅방 이름"
+        android:text="먹고 싶은 메뉴"
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/add_chat_room_edt_name"

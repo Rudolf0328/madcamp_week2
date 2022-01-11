@@ -108,7 +108,7 @@ class CustomAdapter(private val context: Context, private val dataList: ArrayLis
             Glide.with(image).load(dataList[position].image).into(image)
             image.visibility = View.VISIBLE
             nickName.text = dataList[position].nickName
-            content.hint = dataList[position].content
+            content.setText(dataList[position].content)
             date.text = dataList[position].time
 
             alertDialog.show()
