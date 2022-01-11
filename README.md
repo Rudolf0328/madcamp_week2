@@ -58,7 +58,17 @@
 <Frontend>
 * 사용한 기술 : android studio (java, kotlin), Retrofit2
 * 이미지 올리기
+: 데이터베이스에 직접 이미지를 저장하면 데이터베이스에 부하가 가해지고 효율적이지 않다. 그 대신, 외부에서 이미지 저장 서버를 제공해주는 imgur api를 사용하였다.
+  https://api.imgur.com/
+  사진 정보를 imgur api로 보내주면 imgur 이미지 서버에서 인터넷 상에서 접근할 수 있는 이미지 url 주소를 보내준다. 이 주소를 데이터베이스에 저장하였다.
+
 * Retrofit2
+: json 파일을 자동으로 파싱하는 등 서버와 효율적으로 통신할 수 있다.
+
+
+* 카카오 SDK
+: 카카오에서 제공하는 카카오 로그인 sdk를 활용하였다. 카카오톡의 설치 유무와 상관없이 카카오톡 계정으로 로그인할 수 있다.
+https://developers.kakao.com/docs/latest/ko/kakaologin/common
 
 <Backend>
 * 사용한 기술 : node.js, mongodb
