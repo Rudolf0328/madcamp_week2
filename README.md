@@ -3,7 +3,7 @@
 * 박정웅 | https://github.com/yeolia327
 * 이지원 | https://github.com/Rudolf0328
 * SERVER -> https://github.com/Rudolf0328/madcamp_week2_server
-* 
+
 ## 개요
 ```
 "한국인은 밥심"이라는 문구를 주제로 앱을 구상했다.  
