@@ -2,6 +2,7 @@
 ## 팀원
 * 박정웅 | https://github.com/yeolia327
 * 이지원 | https://github.com/Rudolf0328
+* SERVER -> https://github.com/Rudolf0328/madcamp_week2_server
 * 
 ## 개요
 ```
