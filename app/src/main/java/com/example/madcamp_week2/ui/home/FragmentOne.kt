@@ -84,6 +84,15 @@ class FragmentOne : Fragment() {
         }
     }
 
+    fun refreshFragment() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            requireFragmentManager().beginTransaction().detach(this).commitNow();
+            requireFragmentManager().beginTransaction().attach(this).commitNow();
+        } else {
+            requireFragmentManager().beginTransaction().detach(this).attach(this).commit();
+        }
+    }
+
     private fun copyStreamToFile(uri: Uri): File {
         val outputFile = File.createTempFile("temp", null)
 
@@ -120,6 +129,15 @@ class FragmentOne : Fragment() {
         Feedlist = ArrayList<Feed>()
         val v = inflater.inflate(R.layout.fragment_one, container, false)
         var mAdapter = CustomAdapter(v.context, Feedlist)
+
+
+        (mAdapter as RecyclerView).addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx, dy) {
+                super.onScrolled(recyclerView, dx, dy)
+                refreshFragment()
+            }
+        })
+
         val recycler_view = v.findViewById<RecyclerView>(R.id.one_rcv_list)
         val image = v.findViewById<ImageView>(R.id.one_imgv_profile)
         val logout = v.findViewById<ImageButton>(R.id.one_btn_logout)
@@ -385,6 +403,7 @@ class FragmentOne : Fragment() {
                                     if (response?.body() != null ) {
                                         Toast.makeText(requireContext(), "피드를 올렸습니다", Toast.LENGTH_SHORT).show()
                                         alertDialog.dismiss()
+                                        refreshFragment()
 
                                     }else{
                                         Toast.makeText(requireContext(), "피드를 올리지 못했습니다", Toast.LENGTH_SHORT).show()
@@ -425,42 +444,42 @@ class FragmentOne : Fragment() {
         }
 
         //유저 정보 수정
-        userProfile.setOnClickListener {
-            Log.e("userProfile", "click")
-            val userProfilePopUp = layoutInflater.inflate(R.layout.user_profile, null)
-            one_imgv_profile_PopUp = userProfilePopUp.findViewById<ImageView>(R.id.one_imgv_profile)
-            val one_tv_name_PopUp = userProfilePopUp.findViewById<TextView>(R.id.one_tv_name)
-            val one_tv_id_PopUp = userProfilePopUp.findViewById<TextView>(R.id.one_tv_id)
-            val one_tv_post_num_PopUp = userProfilePopUp.findViewById<TextView>(R.id.one_tv_post_num)
-//            val userProfile_edit_photo = userProfilePopUp.findViewById<TextView>(R.id.userProfile_edit_photo)
-//            val userProfile_edit_send = userProfilePopUp.findViewById<TextView>(R.id.userProfile_edit_send)
-
-            if(userThumnail != "null"){
-                Glide.with(one_imgv_profile_PopUp).load(userThumnail).circleCrop().into(one_imgv_profile_PopUp)
-            }else {
-                Glide.with(one_imgv_profile_PopUp).load(R.drawable.ic_baseline_account_box_24).circleCrop().into(one_imgv_profile_PopUp)
-            }
-
-            one_tv_name_PopUp.text = nickName
-            one_tv_id_PopUp.text = id
-            one_tv_post_num_PopUp.text = one_tv_post_num.text
-
-
-
-            val alertDialog = AlertDialog.Builder(v.context)
-                .setView(userProfilePopUp)
-                .create()
-
-
-            alertDialog.show()
+//        userProfile.setOnClickListener {
+//            Log.e("userProfile", "click")
+//            val userProfilePopUp = layoutInflater.inflate(R.layout.user_profile, null)
+//            one_imgv_profile_PopUp = userProfilePopUp.findViewById<ImageView>(R.id.one_imgv_profile)
+//            val one_tv_name_PopUp = userProfilePopUp.findViewById<TextView>(R.id.one_tv_name)
+//            val one_tv_id_PopUp = userProfilePopUp.findViewById<TextView>(R.id.one_tv_id)
+//            val one_tv_post_num_PopUp = userProfilePopUp.findViewById<TextView>(R.id.one_tv_post_num)
+////            val userProfile_edit_photo = userProfilePopUp.findViewById<TextView>(R.id.userProfile_edit_photo)
+////            val userProfile_edit_send = userProfilePopUp.findViewById<TextView>(R.id.userProfile_edit_send)
 //
-//            userProfile_edit_photo.setOnClickListener{
-//                gallery()
-//                uri
-//
+//            if(userThumnail != "null"){
+//                Glide.with(one_imgv_profile_PopUp).load(userThumnail).circleCrop().into(one_imgv_profile_PopUp)
+//            }else {
+//                Glide.with(one_imgv_profile_PopUp).load(R.drawable.ic_baseline_account_box_24).circleCrop().into(one_imgv_profile_PopUp)
 //            }
-
-        }
+//
+//            one_tv_name_PopUp.text = nickName
+//            one_tv_id_PopUp.text = id
+//            one_tv_post_num_PopUp.text = one_tv_post_num.text
+//
+//
+//
+//            val alertDialog = AlertDialog.Builder(v.context)
+//                .setView(userProfilePopUp)
+//                .create()
+//
+//
+//            alertDialog.show()
+////
+////            userProfile_edit_photo.setOnClickListener{
+////                gallery()
+////                uri
+////
+////            }
+//
+//        }
 
         return v
     }
