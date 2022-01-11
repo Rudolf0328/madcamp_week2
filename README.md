@@ -58,7 +58,9 @@
 ```
 
 ### 밥 메이트 구하기
-<img src="https://user-images.githubusercontent.com/54528011/148920264-da743a85-e204-4ed7-bdac-60ad5f1fe51e.gif" width="180" height="380">
+| <img src="https://user-images.githubusercontent.com/54528011/148920264-da743a85-e204-4ed7-bdac-60ad5f1fe51e.gif" width="180" height="380"> | <img src="https://user-images.githubusercontent.com/54528011/148922824-18452d91-a12f-4851-b8dc-6789583925ee.jpeg" width="180" height="380">
+|:---:|:---:|
+| 팟에 참가하기 | 새로운 팟 만들기 |
 
 
 ```
