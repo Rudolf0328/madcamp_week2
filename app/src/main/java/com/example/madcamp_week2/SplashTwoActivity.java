@@ -8,12 +8,13 @@ public class SplashTwoActivity extends Activity {
     protected void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
         try {
-            Thread.sleep(200);
+            System.out.println("splash 2");
+            Thread.sleep(1000);
         } catch (Exception e){
             e.printStackTrace();
         }
 
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, SplashThreeActivity.class);
         startActivity(intent);
         finish();
     }

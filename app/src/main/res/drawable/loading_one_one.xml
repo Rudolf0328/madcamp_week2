@@ -54,6 +54,6 @@
             >
             <bitmap
                 android:gravity="fill"
-                android:src="@drawable/loading" />
+                android:src="@drawable/loading_one" />
         </item>
 </layer-list>

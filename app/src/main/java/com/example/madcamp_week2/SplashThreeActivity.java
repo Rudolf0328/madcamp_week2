@@ -8,7 +8,8 @@ public class SplashThreeActivity extends Activity {
     protected void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
         try {
-            Thread.sleep(200);
+            System.out.println("splash 3");
+            Thread.sleep(1000);
         } catch (Exception e){
             e.printStackTrace();
         }
